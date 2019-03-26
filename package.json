@@ -49,9 +49,9 @@
     },
     "dependencies": {
         "animejs": "^3.0.1",
-        "@codewithkyle/device-manager": "^1.0.0",
-        "@codewithkyle/pjax": "^1.1.4",
-        "@codewithkyle/state-manager": "^1.0.0",
+        "@codewithkyle/device-manager": "latest",
+        "@codewithkyle/pjax": "latest",
+        "@codewithkyle/state-manager": "latest",
         "uuid": "^3.3.2",
         "webpack": "^4.29.6"
     },
