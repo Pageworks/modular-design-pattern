@@ -1,0 +1,36 @@
+# REMOVE ME AFTER COMPOSER INSTALL
+/vendor
+# -------
+
+# NPM
+# -------
+/node_modules
+
+# Craft CMS
+# -------
+.env
+license.key
+/.idea
+/storage/*
+!/storage/.gitkeep
+/public/uploads/*
+!/public/uploads/.gitkeep
+/public/imager/*
+!/public/imager/.gitkeep
+/user-uploads/*
+!/user-uploads/.gitkeep
+
+# Logging
+# -------
+*.log
+error_log
+logs/
+
+
+# Other
+# -------
+/.sass-cache
+.DS_Store
+.stylelintcache
+_compiled
+.editorconfig
