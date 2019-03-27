@@ -1,5 +1,5 @@
 # The Box
-You can't think outside the box, unless you have the box.
+You can't think outside the box you don't have.
 
 # Goals
 #### User Focused
