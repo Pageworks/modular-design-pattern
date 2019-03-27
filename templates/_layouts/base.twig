@@ -6,26 +6,45 @@
     {% set pageTitle = category.title ~ " | " ~ siteName %}
 {% endif %}
 
+{% set pageDescription = pageTitle %}
+{% if entry is defined %}
+    {% if entry.pageDescription is defined and entry.pageDescription|length  %}
+        {% set pageDescription = entry.pageDescription %}
+    {% elseif category.pageDescription is defined and category.pageDescription|length  %}
+        {% set pageDescription = category.pageDescription %}
+    {% endif %}
+
 {% set isDebug = craft.app.request.getParam('debug') %}
 <!doctype html>
 <html lang="en-US" class="has-no-js is-not-pointer-device is-not-touch-device dom-is-loading" {% if isDebug|length %}debug="true"{% endif %} data-csrf="{{ craft.app.request.getCsrfToken() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Android Navigaiton Bar Theme Colour -->
+        <meta name="theme-color" content="#1FB6FF">
+
         {% block head %}
             <title>{{pageTitle}}</title>
+            <meta name="description" content="{{ pageTitle }}">
         {% endblock %}
 
-        <link rel="apple-touch-icon" href="{{siteUrl}}assets/images/apple-touch-icon.png">
-        <link rel="icon" href="{{siteUrl}}assets/images/favicon.png">
+        <!-- Icons -->
+        <link rel="icon" sizes="192x192" href="{{siteUrl}}assets/images/icon-192.png">
+        <link rel="apple-touch-icon" href="{{siteUrl}}assets/images/ios-icon.png">
+        <meta name="msapplication-square310x310logo" content="{{siteUrl}}assets/images/icon-310.png">
 
+        <!-- PWA Manifest -->
+        <link rel="manifest" href="{{ siteUrl }}manifest.json">
+
+        <!-- Stylesheets -->
         <link rel="stylesheet" type="text/css" href="{{siteUrl}}assets/styles/main.css">
 
+        <!-- Main Application Script -->
         <script defer src="{{siteUrl}}assets/scripts/app.js"></script>
 
-        {# Critical CSS #}
+        <!-- Critcial CSS -->
         <style>
             .c-transition{
                 @include size(100vw, 4px);

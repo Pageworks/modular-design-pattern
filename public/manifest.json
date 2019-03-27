@@ -1,0 +1,21 @@
+{
+    "short_name": "Box",
+    "name": "The Box",
+    "icons": [
+      {
+        "src": "./assets/images/icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "./assets/images/icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/?source=pwa",
+    "background_color": "#1FB6FF",
+    "display": "standalone",
+    "scope": "/?source=pwa",
+    "theme_color": "#1FB6FF"
+  }
