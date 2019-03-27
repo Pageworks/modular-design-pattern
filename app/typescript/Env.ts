@@ -14,9 +14,12 @@ export default class Env {
 
 
     constructor(){
-        // Check if the hostname is set to `.local`
         if(window.location.hostname.match(/.local/gi)){
-            // If on a local environment enable debug
+            // Checks if the hostname is set to `.local`
+            Env.setDebug(true);
+        }
+        else if(document.documentElement.getAttribute('debug') !== null){
+            // Checks if the `debug` attribute is set on the `document
             Env.setDebug(true);
         }
     }
