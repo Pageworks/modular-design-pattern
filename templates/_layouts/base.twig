@@ -13,6 +13,7 @@
     {% elseif category.pageDescription is defined and category.pageDescription|length  %}
         {% set pageDescription = category.pageDescription %}
     {% endif %}
+{% endif %}
 
 {% set isDebug = craft.app.request.getParam('debug') %}
 <!doctype html>

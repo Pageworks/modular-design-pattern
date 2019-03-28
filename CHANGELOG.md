@@ -2,7 +2,7 @@
 
 ### Adds
 
-- Adds: initial clone of [papertrain](https://github.com/Pageworks/papertrain)
+- Adds: initial (partial) clone of [papertrain](https://github.com/Pageworks/papertrain)
 - Adds: `Env` class sets the `isDebug` status if the `window.location.hostname` contains `.local`
 - Adds: `Env` class checks for a `debug` attribute on the `document`
 - Adds: `App` class inits the `Env` class
