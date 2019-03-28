@@ -1,8 +1,14 @@
 import Env from './Env';
 import Pjax from '@codewithkyle/pjax';
+import DeviceManager from '@codewithkyle/device-manager';
 
 export default class App{
+    
+    private _deviceManager: DeviceManager;
+    
     constructor(){
+        this._deviceManager = null;
+
         this.init();
     }
 
@@ -11,9 +17,17 @@ export default class App{
      * Use this method to launch any additional classes/packages.
      */
     private init(): void{
+        
+        // Start the Enviroment class
         new Env();
+
+        // Start Pjax
         new Pjax({ debug: Env.isDebug });
 
+        // Start Device Manager
+        this._deviceManager = new DeviceManager(Env.isDebug, true);
+
+        // Listen for a successful page transition event
         document.addEventListener('pjax:complete', this.handlePageLoad);
     }
 
@@ -29,7 +43,9 @@ export default class App{
      * Any classes/packages that need to manage their DOM hooks should be told to reinit.
      */
     public reinit():void{
-
+        if(this._deviceManager !== null){
+            this._deviceManager.reinit();
+        }
     }
 }
 

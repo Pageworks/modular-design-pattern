@@ -9,6 +9,7 @@
 - Adds: `App` class adds the `pjax:complete` event listener to the `document`
 - Adds: `App` class calls it's public `reinit()` method when Pjax fires the `pjax:complete` event
 - Adds: `manifest.json` to the `public` directory
+- Adds: [DeviceManager](https://github.com/codewithkyle/device-manager)
 
 ### Fixes
 
