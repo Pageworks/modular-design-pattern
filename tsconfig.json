@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "./public/assets/scripts",
+        "outDir": "./public/assets",
         "sourceMap": true,
         "noImplicitAny": true,
         "experimentalDecorators": true,

@@ -40,10 +40,10 @@
         <link rel="manifest" href="{{ siteUrl }}manifest.json">
 
         <!-- Stylesheets -->
-        <link rel="stylesheet" type="text/css" href="{{siteUrl}}assets/styles/main.css">
+        {# <link rel="stylesheet" type="text/css" href="{{siteUrl}}assets/styles/main.css"> #}
 
         <!-- Main Application Script -->
-        {% do view.registerJsFile('/assets/scripts/app/script/App.js', {"defer":"defer"}) %}
+        {% do view.registerJsFile('/assets/app/script/App.js', {"defer":"defer"}) %}
 
         <!-- Critcial CSS -->
         <style>

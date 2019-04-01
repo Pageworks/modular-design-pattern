@@ -24,22 +24,11 @@
     "main": "./app/typescript/App.ts",
     "scripts": {
         "precommit": "lint-staged",
-        "lint": "npm-run-all lint:*",
-        "lint:sass": "stylelint app/sass/**/*.scss --cache",
-        "lint:typescript": "tslint app/scripts/**/*.ts -c .tslintrc.js -p tsconfig.json -t verbose",
         "build": "npm-run-all compile:*",
         "compile": "npm-run-all compile:*",
         "compile:typescript": "tsc",
         "compile:webpack": "cross-env NODE_ENV=production webpack",
-        "compile:sass": "node-sass ./app/sass/main.scss ./public/assets/styles/main.css --output-style compressed",
-        "compile:linter": "npm run lint",
-        "dev": "run-p watch:*",
-        "dev:typescript": "tsc && npm run dev:webpack",
-        "dev:webpack": "cross-env NODE_ENV=development webpack",
-        "dev:sass": "node-sass ./app/sass/main.scss ./public/assets/styles/main.css",
-        "watch:typescript": "watch \"npm run dev:typescript\" ./app/typescript",
-        "watch:sass": "watch \"npm run dev:sass\" ./app/sass",
-        "watch:sync": "node ./sync.js"
+        "compile:sass": "node-sass ./templates/components -o ./public/assets/templates/components --output-style compressed"
     },
     "lint-staged": {
         "linters": {
