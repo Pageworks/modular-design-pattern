@@ -28,7 +28,7 @@
 
         {% block head %}
             <title>{{pageTitle}}</title>
-            <meta name="description" content="{{ pageTitle }}">
+            <meta name="description" content="{{ pageDescription }}">
         {% endblock %}
 
         <!-- Icons -->
@@ -43,7 +43,7 @@
         <link rel="stylesheet" type="text/css" href="{{siteUrl}}assets/styles/main.css">
 
         <!-- Main Application Script -->
-        <script defer src="{{siteUrl}}assets/scripts/app.js"></script>
+        {% do view.registerJsFile('/assets/scripts/app/script/App.js', {"defer":"defer"}) %}
 
         <!-- Critcial CSS -->
         <style>
