@@ -1,6 +1,6 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[4],{
 
-/***/ 16:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,4 +12,4 @@ console.log(Env_1.default.APP_NAME);
 
 /***/ })
 
-},[[16,0,2]]]);
+},[[3,0,2]]]);

@@ -1,0 +1,8 @@
+{% extends '_layouts/base.twig' %}
+
+{% block content %}
+    <article data-template="test" class="-base-background">
+        {% include 'objects/object2/object2.twig' %}
+        <a href="{{ siteUrl|trim('/') }}">home</a>
+    </article>
+{% endblock %}

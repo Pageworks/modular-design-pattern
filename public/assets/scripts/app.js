@@ -6,8 +6,7 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var Env_1 = __webpack_require__(1);
-var pjax_1 = __webpack_require__(2);
-var device_manager_1 = __webpack_require__(15);
+var device_manager_1 = __webpack_require__(2);
 var App = (function () {
     function App() {
         var _this = this;
@@ -19,7 +18,6 @@ var App = (function () {
     }
     App.prototype.init = function () {
         new Env_1.default();
-        new pjax_1.default({ debug: Env_1.default.isDebug });
         this._deviceManager = new device_manager_1.default(Env_1.default.isDebug, true);
         document.addEventListener('pjax:complete', this.handlePageLoad);
     };

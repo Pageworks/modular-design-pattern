@@ -27,7 +27,8 @@
         "build": "npm-run-all compile:*",
         "compile": "npm-run-all compile:*",
         "compile:typescript": "tsc",
-        "compile:sass": "node-sass ./templates/components -o ./public/assets/styles/components --output-style compressed",
+        "compile:components": "node-sass ./templates/components -o ./public/assets/styles/components --output-style compressed",
+        "compile:objects": "node-sass ./templates/objects -o ./public/assets/styles/objects --output-style compressed",
         "bundle": "webpack"
     },
     "lint-staged": {
