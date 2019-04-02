@@ -27,8 +27,8 @@
         "build": "npm-run-all compile:*",
         "compile": "npm-run-all compile:*",
         "compile:typescript": "tsc",
-        "compile:sass": "node-sass ./templates/components -o ./public/assets/templates/components --output-style compressed",
-        "bundle": "rollup -c"
+        "compile:sass": "node-sass ./templates/components -o ./public/assets/styles/components --output-style compressed",
+        "bundle": "webpack"
     },
     "lint-staged": {
         "linters": {
@@ -41,8 +41,8 @@
         "@codewithkyle/pjax": "^1.3.0",
         "@codewithkyle/state-manager": "latest",
         "animejs": "^3.0.1",
-        "rollup": "^1.7.4",
-        "uuid": "^3.3.2"
+        "uuid": "^3.3.2",
+        "webpack": "^4.29.6"
     },
     "devDependencies": {
         "browser-sync": "^2.26.3",
@@ -61,6 +61,7 @@
         "tslint-config-airbnb": "^5.11.1",
         "tslint-config-prettier": "^1.18.0",
         "typescript": "^3.3.3333",
-        "watch": "^1.0.2"
+        "watch": "^1.0.2",
+        "webpack-cli": "^3.3.0"
     }
 }

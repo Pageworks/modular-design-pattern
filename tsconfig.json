@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
-        "outDir": "./public/assets",
+        "outDir": "./_compiled",
         "sourceMap": false,
         "noImplicitAny": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "removeComments": true,
         "target": "es5",
-        "module": "es6",
+        "module": "commonjs",
         "moduleResolution": "node",
         "lib": [
             "dom",
