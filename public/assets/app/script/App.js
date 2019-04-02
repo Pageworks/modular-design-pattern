@@ -29,4 +29,3 @@ exports.default = App;
 (function () {
     new App();
 })();
-//# sourceMappingURL=App.js.map

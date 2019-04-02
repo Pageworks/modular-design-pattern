@@ -6,4 +6,3 @@ function customEvent(eventType, detail) {
     document.dispatchEvent(event);
 }
 exports.customEvent = customEvent;
-//# sourceMappingURL=customEvent.js.map

@@ -10,4 +10,3 @@ function getParent(el, selector) {
     return el;
 }
 exports.getParent = getParent;
-//# sourceMappingURL=getParent.js.map

@@ -11,4 +11,3 @@ function sendRequest(method, url) {
     });
 }
 exports.sendRequest = sendRequest;
-//# sourceMappingURL=ajax.js.map
