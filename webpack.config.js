@@ -1,5 +1,8 @@
 const path = require('path');
 const glob = require("glob");
+const rimraf = require("rimraf");
+
+rimraf.sync("./public/assets/scripts");
 
 let entries = {
     app: './_compiled/app/script/App.js'
@@ -13,7 +16,7 @@ for(let i = 0; i < components.length; i++){
 }
 
 module.exports = {
-    mode: 'none',
+    mode: 'development',
     entry: entries,
     output: {
         filename: '[name].js',
