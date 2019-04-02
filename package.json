@@ -27,7 +27,8 @@
         "build": "npm-run-all compile:*",
         "compile": "npm-run-all compile:*",
         "compile:typescript": "tsc",
-        "compile:sass": "node-sass ./templates/components -o ./public/assets/templates/components --output-style compressed"
+        "compile:sass": "node-sass ./templates/components -o ./public/assets/templates/components --output-style compressed",
+        "bundle": "rollup -c"
     },
     "lint-staged": {
         "linters": {

@@ -3,6 +3,12 @@
 ### Adds
 
 - Adds: begins testing using Crafts `view.registerJsFile` as a dynamic module loader
+- Adds: [rollup.js](https://rollupjs.org/guide/en)
+- Adds: switches TypeScript to compile modules as `UMD` instead of `CommonJS`
+
+### Removes
+
+- Removes: webpack and webpack-cli
 
 # 0.0.1 - 2019-03-30
 
