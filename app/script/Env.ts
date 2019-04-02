@@ -22,6 +22,7 @@ export default class Env {
             // Checks if the `debug` attribute is set on the `document
             Env.setDebug(true);
         }
+        console.log('Env started');
     }
 
     /**

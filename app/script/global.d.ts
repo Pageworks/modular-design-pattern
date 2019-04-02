@@ -8,11 +8,11 @@ interface IEasingObject{
     sharp:  string;
 }
 
-declare class Env{
-    setDebug:       Function;
-    PJAX_CONTAINER: string;
-    SCROLL_TRIGGER: number;
-    APP_NAME:       string;
-    EASING:         IEasingObject;
-    isDebug:        boolean;
-}
+// declare class Env{
+//     setDebug:       Function;
+//     PJAX_CONTAINER: string;
+//     SCROLL_TRIGGER: number;
+//     APP_NAME:       string;
+//     EASING:         IEasingObject;
+//     isDebug:        boolean;
+// }
