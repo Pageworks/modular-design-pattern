@@ -1,3 +1,11 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],[
+/* 0 */,
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 var Env = (function () {
     function Env() {
         if (window.location.hostname.match(/.local/gi)) {
@@ -23,4 +31,8 @@ var Env = (function () {
     };
     return Env;
 }());
-export default Env;
+exports.default = Env;
+
+
+/***/ })
+]]);

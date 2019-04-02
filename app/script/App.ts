@@ -1,7 +1,6 @@
 import Env from './Env';
-// import Pjax from '@codewithkyle/pjax';
+import Pjax from '@codewithkyle/pjax';
 import DeviceManager from '@codewithkyle/device-manager';
-import { sendRequest } from './utils/ajax';
 
 class App{
 
@@ -21,10 +20,10 @@ class App{
         new Env();
 
         // Start Pjax
-        // new Pjax({ debug: Env.isDebug });
+        new Pjax({ debug: Env.isDebug });
 
         // Start Device Manager
-        // this._deviceManager = new DeviceManager(Env.isDebug, true);
+        this._deviceManager = new DeviceManager(Env.isDebug, true);
 
         // Listen for a successful page transition event
         document.addEventListener('pjax:complete', this.handlePageLoad);

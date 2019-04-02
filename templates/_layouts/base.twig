@@ -43,7 +43,10 @@
         {# <link rel="stylesheet" type="text/css" href="{{siteUrl}}assets/styles/main.css"> #}
 
         <!-- Main Application Script -->
-        {% do view.registerJsFile('/assets/app/script/App.js', {"defer":"defer"}) %}
+        {% do view.registerJsFile('/assets/scripts/app.js', {"async":"async"}) %}
+        {% do view.registerJsFile('/assets/scripts/globals.js', {"async":"async"}) %}
+        {% do view.registerJsFile('/assets/scripts/npm.codewithkyle.js', {"async":"async"}) %}
+        {% do view.registerJsFile('/assets/scripts/runtime.js', {"defer":"defer"}) %}
 
         <!-- Critcial CSS -->
         <style>
