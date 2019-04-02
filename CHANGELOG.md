@@ -3,8 +3,9 @@
 ### Adds
 
 - Adds: begins testing using Crafts `view.registerJsFile` as a dynamic module loader
-- Adds: [rollup.js](https://rollupjs.org/guide/en)
-- Adds: switches TypeScript to compile modules as `UMD` instead of `CommonJS`
+- Adds: `components` and `objects` folder to the `templates` directory
+- Adds: basic file structure for a new `component` or `object`
+- Adds: webpack bundles everything into seperate files within the `public/assets` directory
 
 ### Removes
 

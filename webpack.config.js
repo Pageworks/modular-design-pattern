@@ -12,13 +12,6 @@ for(let i = 0; i < components.length; i++){
     entries[name] = components[i];
 }
 
-// Objects
-const objects = glob.sync('./_compiled/templates/objects/**/*.js');
-for(let i = 0; i < objects.length; i++){
-    const name = objects[i].match(/[ \w-]+?(?=\.)/)[0];
-    entries[name] = objects[i];
-}
-
 module.exports = {
     mode: 'none',
     entry: entries,
