@@ -1,3 +1,18 @@
+# 0.0.3 - 2019-04-07
+
+### Adds
+
+- Adds: reworks base SASS structure
+- Adds: splits SASS imports into seperate files
+- Adds: splits `main.css` into several smaller files
+- Adds: `BaseModule` class
+- Adds: generic `Header` component
+- Adds: components dynamically add themselves to the global `modules` object
+
+### Removes
+
+- Removes: purges old objects/components SCSS files
+
 # 0.0.2 - 2019-04-01
 
 ### Adds
