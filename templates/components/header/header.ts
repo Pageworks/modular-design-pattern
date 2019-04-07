@@ -25,3 +25,6 @@ export class Header extends BaseModule{
         super.destroy(Header.MODULE_NAME);
     }
 }
+
+// Adds module to the global Modules object
+modules[Header.MODULE_NAME] = Header;

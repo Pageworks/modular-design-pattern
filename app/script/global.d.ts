@@ -9,14 +9,7 @@ interface IEasingObject{
 }
 
 declare class App{
-    
+
 }
 
-// declare class Env{
-//     setDebug:       Function;
-//     PJAX_CONTAINER: string;
-//     SCROLL_TRIGGER: number;
-//     APP_NAME:       string;
-//     EASING:         IEasingObject;
-//     isDebug:        boolean;
-// }
+declare const modules: { [index:string]: Function };
