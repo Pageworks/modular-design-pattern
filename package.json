@@ -24,6 +24,8 @@
     "main": "./app/typescript/App.ts",
     "scripts": {
         "precommit": "lint-staged",
+        "lint:sass": "stylelint *.scss --cache",
+        "lint:typescript": "tslint *.ts -c .tslintrc.js -p tsconfig.json -t verbose",
         "build": "npm-run-all compile:*",
         "compile": "npm-run-all compile:*",
         "compile:typescript": "tsc",
@@ -35,8 +37,8 @@
     },
     "lint-staged": {
         "linters": {
-            "app/typescript/**.*.ts": "npm run lint:typescript",
-            "app/sass/**/*.scss": "npm run lint:sass"
+            "*.ts": "npm run lint:typescript",
+            "*.scss": "npm run lint:sass"
         }
     },
     "dependencies": {
