@@ -8,6 +8,10 @@ interface IEasingObject{
     sharp:  string;
 }
 
+declare class App{
+    
+}
+
 // declare class Env{
 //     setDebug:       Function;
 //     PJAX_CONTAINER: string;

@@ -1,0 +1,13 @@
+@import '../../../app/sass/settings/colors';
+@import '../../../app/sass/settings/units';
+
+.o-button{
+    height: 36px;
+    line-height: 36px;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0 $unit;
+    border-radius: 2px;
+    background-color: $primary;
+    box-shadow: 0 2px 4px rgba($off-black, 0.1);
+}

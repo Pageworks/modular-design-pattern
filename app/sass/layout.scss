@@ -1,0 +1,13 @@
+@import './settings/units';
+@import './settings/breakpoints';
+
+// Layout
+// =============================================================================
+$gutter:        $unit;
+$gutter-small:  $unit-half;
+$gutter-large:  $unit*2;
+
+// Container
+// ==========================================================================
+$container-width:           1024px;
+$narrow-container-width:    680px;

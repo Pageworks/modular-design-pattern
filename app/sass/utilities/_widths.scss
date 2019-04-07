@@ -12,4 +12,3 @@ $widths-fractions: 1 2 3 !default;
 @include widths($widths-fractions, $screen-xlarge, xlarge);
 @include widths($widths-fractions, $screen-xxlarge, xxlarge);
 @include widths($widths-fractions, $screen-xxxlarge, xxxlarge);
-@include widths($widths-fractions, $screen-container, container);

@@ -1,8 +1,7 @@
-export default class Env {
+export class Env {
 
     public static PJAX_CONTAINER:string = '.js-pjax';
     public static SCROLL_TRIGGER:number = 100;
-    public static APP_NAME:string       = 'REPLACE_ME';
     public static isDebug:boolean       = false;
 
     public static EASING:IEasingObject   = {
@@ -22,14 +21,13 @@ export default class Env {
             // Checks if the `debug` attribute is set on the `document
             Env.setDebug(true);
         }
-        console.log('Env started');
     }
 
     /**
      * Sets the static `Env.isDebug` status to the provided parameter.
      * @param status - `boolean`
      */
-    public static setDebug(status:boolean): void{
+    public static setDebug(status:boolean):void{
         Env.isDebug = status;
     }
 }

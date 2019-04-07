@@ -27,26 +27,25 @@
         <meta name="theme-color" content="#1FB6FF">
 
         {% block head %}
-            <title>{{pageTitle}}</title>
+            <title>{{ pageTitle }}</title>
             <meta name="description" content="{{ pageDescription }}">
         {% endblock %}
 
-        <!-- Icons -->
-        <link rel="icon" sizes="192x192" href="{{siteUrl}}assets/images/icon-192.png">
-        <link rel="apple-touch-icon" href="{{siteUrl}}assets/images/ios-icon.png">
-        <meta name="msapplication-square310x310logo" content="{{siteUrl}}assets/images/icon-310.png">
+        {# Icons #}
+        <link rel="icon" sizes="192x192" href="{{ siteUrl|trim('/') }}/assets/images/icon-192.png">
+        <link rel="apple-touch-icon" href="{{ siteUrl|trim('/') }}/assets/images/ios-icon.png">
+        <meta name="msapplication-square310x310logo" content="{{ siteUrl|trim('/') }}/assets/images/icon-310.png">
 
-        <!-- PWA Manifest -->
-        <link rel="manifest" href="{{ siteUrl }}manifest.json">
+        {# PWA Manifest #}
+        <link rel="manifest" href="{{ siteUrl|trim('/') }}/manifest.json">
 
-        <!-- Stylesheets -->
-        {# <link rel="stylesheet" type="text/css" href="{{siteUrl}}assets/styles/main.css"> #}
-
-        <!-- Main Scripts -->
-        {% do view.registerJsFile('/assets/scripts/app.js', {"async":"async"}) %}
-        {% do view.registerJsFile('/assets/scripts/globals.js', {"async":"async"}) %}
-        {% do view.registerJsFile('/assets/scripts/npm.codewithkyle.js', {"async":"async"}) %}
-        {% do view.registerJsFile('/assets/scripts/runtime.js', {"defer":"defer"}) %}
+        {# Stylesheets #}
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/main.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/fonts.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/utility.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/spacing.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/widths.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/layout.css">
 
         <!-- Critcial CSS -->
         <style>
@@ -198,17 +197,21 @@
         </style>
     </head>
     <body>
+        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/runtime.js', {"async":"async"}) %}
+        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/globals.js', {"async":"async"}) %}
+        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/npm.codewithkyle.js', {"async":"async"}) %}
         {% spaceless %}
             {# Page Transition Animation #}
             <div class="c-transition">
                 <div class="c-transition_primary"></div>
                 <div class="c-transition_secondary"></div>
             </div>
-            {% include '_includes/header.twig' %}
+            {% include 'components/header/header.twig' %}
             <main role="main" class="js-pjax">
                 {% block content %}{% endblock %}
             </main>
-            {% include '_includes/footer.twig' %}
+            {# {% include '_includes/footer.twig' %} #}
         {% endspaceless %}
+        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/app.js', {"defer":"defer"}) %}
     </body>
 </html>
