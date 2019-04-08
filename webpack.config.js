@@ -1,8 +1,15 @@
 const path = require('path');
 const glob = require("glob");
 const rimraf = require("rimraf");
+const fs = require('fs');
 
 rimraf.sync("./public/assets/scripts");
+
+const timestamp = Date.now().toString().match(/.{8}$/g)[0];
+
+var data = fs.readFileSync('./config/general.php', 'utf-8');
+var newValue = data.replace(/'cacheBustTimestamp'.*/g, "'cacheBustTimestamp' => '"+ timestamp +"'");
+fs.writeFileSync('./config/general.php', newValue, 'utf-8');
 
 let entries = {
     app: './_compiled/app/script/App.js'
@@ -16,10 +23,10 @@ for(let i = 0; i < components.length; i++){
 }
 
 module.exports = {
-    mode: 'development',
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'none',
     entry: entries,
     output: {
-        filename: '[name].js',
+        filename: '[name].'+timestamp+'.js',
         path: path.resolve(__dirname, './public/assets/scripts')
     },
     optimization: {

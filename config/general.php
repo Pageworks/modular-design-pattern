@@ -22,7 +22,8 @@ return [
         'activateAccountSuccessPath'    => 'users/profile',
         'invalidUserTokenPath'          => 'users/invalid',
         'setPasswordPath'               => 'users/password',
-        'purgePendingUsersDuration'     => 'P1M'
+        'purgePendingUsersDuration'     => 'P1M',
+        'cacheBustTimestamp' => '19652699'
     ],
 
     // Dev environment settings

@@ -8,6 +8,9 @@
 - Adds: `BaseModule` class
 - Adds: generic `Header` component
 - Adds: components dynamically add themselves to the global `modules` object
+- Adds: `compile:*` scripts for production level TypeScript/SASS compiling & Webpack bundling
+- Adds: webpack adds a cache busting timestamp to the bundles
+- Adds: cache bust timestamp is automagically set in the `./config/general.php` file upon compiling
 
 ### Removes
 

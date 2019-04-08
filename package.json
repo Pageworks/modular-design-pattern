@@ -14,7 +14,9 @@
         "framework",
         "webpack",
         "typescript",
-        "page transitions"
+        "page transitions",
+        "ES Modules",
+        "dynamic importing"
     ],
     "bugs": {
         "url": "https://github.com/codewithkyle/the-box/issues",
@@ -32,8 +34,8 @@
         "compile:components": "node-sass ./templates/components -o ./public/assets/styles/components --output-style compressed",
         "compile:objects": "node-sass ./templates/objects -o ./public/assets/styles/objects --output-style compressed",
         "compile:scss": "node-sass ./app/sass -o ./public/assets/styles  --output-style compressed",
-        "compile:bundle": "webpack",
-        "bundle": "webpack"
+        "compile:bundle": "cross-env NODE_ENV=production webpack",
+        "bundle": "cross-env NODE_ENV=development webpack"
     },
     "lint-staged": {
         "linters": {

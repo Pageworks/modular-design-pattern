@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{18:function(o,n){console.log("object 1")}},[[18,0]]]);
