@@ -23,7 +23,7 @@ return [
         'invalidUserTokenPath'          => 'users/invalid',
         'setPasswordPath'               => 'users/password',
         'purgePendingUsersDuration'     => 'P1M',
-        'cacheBustTimestamp' => '05547527'
+        'cacheBustTimestamp' => '09275495'
     ],
 
     // Dev environment settings

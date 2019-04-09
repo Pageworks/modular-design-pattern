@@ -84,6 +84,60 @@ export class ModuleManager{
     }
 
     private static removeModules():void{
+        // Get all elements with a `data-module` attribute
+        const moduleEls:Array<HTMLElement> = Array.from(document.body.querySelectorAll('[data-module]'));
+        const deadModules:Array<IModule> = [];
 
+        // Do nothing if no elements needing modules exist
+        if(!moduleEls.length){
+            return;
+        }
+
+        // Loop through all of the modules that have been created
+        this._modules.forEach((module)=>{
+
+            // Assume the module is dead
+            let survived:boolean = false;
+
+            // Loop through all of the elements that require modules
+            moduleEls.forEach((el:HTMLElement)=>{
+
+                // Check if any of the elements have a matching UUID to the module
+                if(el.dataset.uuid === module.uuid){
+                    survived = true;
+                    return;
+                }
+            });
+
+            // Check if the module survived
+            if(!survived){
+                deadModules.push(module);
+            }
+        });
+
+        // Check if there are dead modules to remove
+        if(deadModules.length){
+
+            // Loop through the dead modules
+            deadModules.forEach((deadModule)=>{
+
+                // Loop through the current modules
+                this._modules.forEach((module)=>{
+
+                    // Check if the dead module is the same as the tracked module
+                    if(deadModule.uuid === module.uuid){
+
+                        // Trigger the modules destruction
+                        module.destroy();
+
+                        // Get the modules index in the modules array
+                        const index = this._modules.indexOf(module);
+
+                        // Splice the module from the array
+                        this._modules.splice(index, 1);
+                    }
+                });
+            });
+        }
     }
 }
