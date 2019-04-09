@@ -83,6 +83,10 @@ export class ModuleManager{
         });
     }
 
+    /**
+     * Get all the elements with a `data-module` attribute.
+     * When a module no longer has an element destroy it.
+     */
     private static removeModules():void{
         // Get all elements with a `data-module` attribute
         const moduleEls:Array<HTMLElement> = Array.from(document.body.querySelectorAll('[data-module]'));
@@ -139,5 +143,37 @@ export class ModuleManager{
                 });
             });
         }
+    }
+
+    /**
+     * Removes a module based on the provided UUID.
+     * @param uuid - `string`
+     */
+    public static removeModule(uuid:string):void{
+
+        // Ensure a UUID was provided
+        if(!uuid){
+            if(Env.isDebug){
+                console.error('UUID value was not provided');
+                return;
+            }
+        }
+
+        // Loop through all of the modules
+        this._modules.forEach((module)=>{
+
+            // Find the module that matches the provided UUID
+            if(module.uuid === uuid){
+
+                // Trigger the modules destruction
+                module.destroy();
+
+                // Get the modules index in the modules array
+                const index = this._modules.indexOf(module);
+
+                // Splice the module from the array
+                this._modules.splice(index, 1);
+            }
+        });
     }
 }
