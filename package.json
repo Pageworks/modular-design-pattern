@@ -22,8 +22,8 @@
         "url": "https://github.com/codewithkyle/the-box/issues",
         "email": "andrewskyle28@gmail.com"
     },
-    "typings": "./app/typescript/global.d.ts",
-    "main": "./app/typescript/App.ts",
+    "typings": "./global/typescript/global.d.ts",
+    "main": "./global/typescript/App.ts",
     "scripts": {
         "precommit": "lint-staged",
         "lint:sass": "stylelint *.scss --cache",
@@ -33,7 +33,7 @@
         "compile:typescript": "tsc",
         "compile:components": "node-sass ./templates/components -o ./public/assets/styles/components --output-style compressed",
         "compile:objects": "node-sass ./templates/objects -o ./public/assets/styles/objects --output-style compressed",
-        "compile:scss": "node-sass ./app/sass -o ./public/assets/styles  --output-style compressed",
+        "compile:scss": "node-sass ./global/sass -o ./public/assets/styles  --output-style compressed",
         "compile:bundle": "cross-env NODE_ENV=production webpack",
         "bundle": "cross-env NODE_ENV=development webpack"
     },

@@ -1,4 +1,4 @@
-import { BaseModule } from '../../../app/script/BaseModule';
+import { BaseModule } from '../../../global/typescript/BaseModule';
 
 export class Header extends BaseModule{
     public static MODULE_NAME:string = 'Header';

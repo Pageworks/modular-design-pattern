@@ -1,5 +1,5 @@
-@import '../../../app/sass/settings/main';
-@import '../../../app/sass/tools/mixins';
+@import '../../../global/sass/settings/main';
+@import '../../../global/sass/tools/mixins';
 
 .c-header{
     @include position(fixed, 0 null null 0);

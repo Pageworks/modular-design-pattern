@@ -16,7 +16,7 @@ fs.writeFileSync('./config/general.php', newValue, 'utf-8');
 
 // Get our main entry
 let entries = {
-    app: './_compiled/app/script/App.js'
+    app: './_compiled/global/typescript/App.js'
 };
 
 // Get the components
