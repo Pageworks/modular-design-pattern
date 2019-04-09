@@ -8,8 +8,15 @@ interface IEasingObject{
     sharp:  string;
 }
 
-declare class App{
+interface IModule{
+    index:      string;
+    destroy:    Function;
+    init:       Function;
+    uuid:       string;
+}
 
+declare class ModuleManager{
+    public static wrangleModules:   Function;
 }
 
 declare const modules: { [index:string]: Function };

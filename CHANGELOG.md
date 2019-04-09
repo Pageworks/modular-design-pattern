@@ -11,6 +11,7 @@
 - Adds: `compile:*` scripts for production level TypeScript/SASS compiling & Webpack bundling
 - Adds: webpack adds a cache busting timestamp to the bundles
 - Adds: cache bust timestamp is automagically set in the `./config/general.php` file upon compiling
+- Adds: Module Manger class (manages instantiating modules)
 
 ### Removes
 

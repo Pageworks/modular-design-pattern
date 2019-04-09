@@ -4,13 +4,13 @@ export class BaseModule{
 
     public el:      HTMLElement;
     public uuid:    string;
-    public app:     App;
+    public manager: ModuleManager;
     public isDebug: boolean;
 
-    constructor(el:HTMLElement, uuid:string, app:App){
+    constructor(el:HTMLElement, uuid:string, manager:ModuleManager){
         this.el         = el;
         this.uuid       = uuid;
-        this.app        = app;
+        this.manager    = manager;
         this.isDebug    = Env.isDebug;
 
         this.el.dataset.uuid = this.uuid;

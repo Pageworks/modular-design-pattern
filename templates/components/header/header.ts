@@ -3,8 +3,8 @@ import { BaseModule } from '../../../app/script/BaseModule';
 export class Header extends BaseModule{
     public static MODULE_NAME:string = 'Header';
 
-    constructor(el:HTMLElement, uuid:string, app:App){
-        super(el, uuid, app);
+    constructor(el:HTMLElement, uuid:string, manager:ModuleManager){
+        super(el, uuid, manager);
 
         if(this.isDebug){
             console.log(`Creating a new ${ Header.MODULE_NAME } module`);
