@@ -40,13 +40,13 @@
         <link rel="manifest" href="{{ siteUrl|trim('/') }}/manifest.json">
 
         {# Stylesheets #}
-        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/main.css">
-        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/fonts.css">
-        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/utility.css">
-        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/spacing.css">
-        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/ratio.css">
-        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/widths.css">
-        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/layout.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/main.{{ craft.app.config.general.cssCacheBustTimestamp }}.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/fonts.{{ craft.app.config.general.cssCacheBustTimestamp }}.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/utility.{{ craft.app.config.general.cssCacheBustTimestamp }}.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/spacing.{{ craft.app.config.general.cssCacheBustTimestamp }}.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/ratio.{{ craft.app.config.general.cssCacheBustTimestamp }}.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/widths.{{ craft.app.config.general.cssCacheBustTimestamp }}.css">
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/layout.{{ craft.app.config.general.cssCacheBustTimestamp }}.css">
 
         <!-- Critcial CSS -->
         <style>
@@ -202,11 +202,11 @@
         </script>
     </head>
     <body>
-        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/runtime.' ~ craft.app.config.general.cacheBustTimestamp ~ '.js', {"async":"async"}) %}
-        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/globals.' ~ craft.app.config.general.cacheBustTimestamp ~ '.js', {"async":"async"}) %}
-        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/npm.codewithkyle.' ~ craft.app.config.general.cacheBustTimestamp ~ '.js', {"async":"async"}) %}
-        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/npm.uuid.' ~ craft.app.config.general.cacheBustTimestamp ~ '.js', {"async":"async"}) %}
-        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/app.' ~ craft.app.config.general.cacheBustTimestamp ~ '.js', {"async":"async"}) %}
+        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/runtime.' ~ craft.app.config.general.jsCacheBustTimestamp ~ '.js', {"async":"async"}) %}
+        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/globals.' ~ craft.app.config.general.jsCacheBustTimestamp ~ '.js', {"async":"async"}) %}
+        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/npm.codewithkyle.' ~ craft.app.config.general.jsCacheBustTimestamp ~ '.js', {"async":"async"}) %}
+        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/npm.uuid.' ~ craft.app.config.general.jsCacheBustTimestamp ~ '.js', {"async":"async"}) %}
+        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/app.' ~ craft.app.config.general.jsCacheBustTimestamp ~ '.js', {"async":"async"}) %}
         {% spaceless %}
             {# Page Transition Animation #}
             <div class="c-transition">

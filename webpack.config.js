@@ -1,17 +1,21 @@
 const path = require('path');
 const glob = require("glob");
-const rimraf = require("rimraf");
 const fs = require('fs');
-
-// Remove old scripts
-rimraf.sync("./public/assets/scripts");
+const rimraf = require("rimraf");
 
 // Create a timestamp for cache busting
 const timestamp = Date.now().toString().match(/.{8}$/g)[0];
 
+// Remove old scripts
+if(fs.existsSync('./public/assets/scripts')){
+    rimraf.sync('./public/assets/scripts');
+}
+
+fs.mkdirSync('./public/assets/scripts');
+
 // Write the timestamp to Crafts general config file
 var data = fs.readFileSync('./config/general.php', 'utf-8');
-var newValue = data.replace(/'cacheBustTimestamp'.*/g, "'cacheBustTimestamp' => '"+ timestamp +"'");
+var newValue = data.replace(/'jsCacheBustTimestamp'.*/g, "'jsCacheBustTimestamp' => '"+ timestamp +"',");
 fs.writeFileSync('./config/general.php', newValue, 'utf-8');
 
 // Get our main entry

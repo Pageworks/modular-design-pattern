@@ -1,4 +1,4 @@
-{% do view.registerJsFile(siteUrl|trim('/') ~ '/assets/scripts/header.' ~ craft.app.config.general.cacheBustTimestamp ~ '.js', { "async":"async" }) %}
-{% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/header.css') %}
+{% do view.registerJsFile(siteUrl|trim('/') ~ '/assets/scripts/header.' ~ craft.app.config.general.jsCacheBustTimestamp ~ '.js', { "async":"async" }) %}
+{% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/header.' ~ craft.app.config.general.cssCacheBustTimestamp ~ '.css') %}
 
 <header class="c-header"></header>
