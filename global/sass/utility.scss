@@ -1,8 +1,8 @@
+@import 'settings';
+@import 'mixins';
+
 // Tool & Utility Classes
 // ========================================
-
-@import 'settings/colors';
-@import 'settings/config';
 
 @import './utilities/align';
 @import './utilities/helpers';

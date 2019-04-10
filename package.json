@@ -35,7 +35,8 @@
         "compile:objects": "node-sass ./templates/objects -o ./public/assets/styles/objects --output-style compressed",
         "compile:scss": "node-sass ./global/sass -o ./public/assets/styles  --output-style compressed",
         "compile:bundle": "cross-env NODE_ENV=production webpack",
-        "bundle": "cross-env NODE_ENV=development webpack"
+        "bundle": "cross-env NODE_ENV=development webpack",
+        "sass": "node ./sass.config.js"
     },
     "lint-staged": {
         "linters": {

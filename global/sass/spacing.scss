@@ -1,9 +1,8 @@
+@import 'settings';
+@import 'mixins';
+
 // Spacing
 // ==========================================================================
-
-@import './settings/units';
-@import './settings/breakpoints';
-
 @import './utilities/spacing';
 
 // Mobile Padding

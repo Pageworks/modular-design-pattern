@@ -1,7 +1,5 @@
-@import '../../../global/sass/settings/colors';
-@import '../../../global/sass/settings/units';
-@import '../../../global/sass/settings/breakpoints';
-@import '../../../global/sass/settings/config';
+@import 'settings';
+@import 'mixins';
 
 .o-button{
     height: 36px;

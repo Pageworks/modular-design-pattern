@@ -1,9 +1,5 @@
-// Settings
-// ==========================================================================
-@import './settings/colors';
-@import './settings/config';
-@import './tools/mixins';
-@import './settings/typography';
+@import 'settings';
+@import 'mixins';
 
 // Base
 // ==========================================================================
