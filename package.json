@@ -30,8 +30,8 @@
         "lint:typescript": "tslint *.ts -c .tslintrc.js -p tsconfig.json -t verbose",
         "webpack": "cross-env NODE_ENV=development webpack",
         "tsc": "tsc",
-        "build": "npm-run-all compile:*",
-        "compile": "npm-run-all compile:*",
+        "build": "npm run compile",
+        "compile": "node ./compile.config.js && npm-run-all compile:*",
         "compile:scripts": "tsc && cross-env NODE_ENV=production webpack",
         "compile:styles": "node ./sass.config.js"
     },

@@ -38,6 +38,12 @@ module.exports = {
         filename: '[name].'+timestamp+'.js',
         path: path.resolve(__dirname, './public/assets/scripts')
     },
+    resolve:{
+        modules:[
+            './global/typescript',
+            './node_modules'
+        ]
+    },
     optimization: {
         runtimeChunk: 'single',
         splitChunks: {

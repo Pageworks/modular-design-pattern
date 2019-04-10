@@ -9,6 +9,10 @@
         "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
+        "baseUrl": "./global/typescript",
+        "paths": {
+            "BaseModule": ["BaseModule"]
+        },
         "lib": [
             "dom",
             "scripthost",
