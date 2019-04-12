@@ -1,7 +1,7 @@
 {
     "name": "@codewithkyle/the-box",
     "description": "A box of tools for building Craft CMS websites.",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "author": "Kyle Andrews <andrewskyle28@gmail.com> (http://codewithkyle.com/)",
     "license": "MIT",
     "repository": {
@@ -33,7 +33,16 @@
         "build": "npm run compile",
         "compile": "node ./compile.config.js && npm-run-all compile:*",
         "compile:scripts": "tsc && cross-env NODE_ENV=production webpack",
-        "compile:styles": "node ./sass.config.js"
+        "compile:styles": "node ./sass.config.js",
+        "dev": "npm-run-all dev:*",
+        "dev:typescript": "tsc",
+        "dev:bundle": "cross-env NODE_ENV=development webpack",
+        "dev:sass": "node ./sass.config.js",
+        "watch": "run-p watch:*",
+        "watch:files": "node ./sync.js",
+        "watch:scripts": "watch \"npm run dev\" ./templates",
+        "watch:globalsass": "watch \"npm run dev:sass\" ./global/sass",
+        "watch:globalscript": "watch \"npm run dev\" ./global/typescript"
     },
     "lint-staged": {
         "linters": {

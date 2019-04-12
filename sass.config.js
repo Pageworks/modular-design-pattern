@@ -14,9 +14,10 @@ const files = [...globalFiles, ...templateFiles];
 
 if(fs.existsSync('./public/assets/styles')){
     rimraf.sync('./public/assets/styles');
+    fs.mkdirSync('./public/assets/styles');
+}else{
+    fs.mkdirSync('./public/assets/styles');
 }
-
-fs.mkdirSync('./public/assets/styles');
 
 // Create a timestamp for cache busting
 const timestamp = Date.now().toString().match(/.{8}$/g)[0];

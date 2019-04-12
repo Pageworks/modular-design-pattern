@@ -1,3 +1,16 @@
+# 0.0.4 - 2019-04-12
+
+### Adds:
+
+- Adds: custom `sass.config.js` compile script
+- Adds: cache busting timestamp for CSS files
+- Adds: initial watch setup for automagically triggering `tsc`, `webpack` and `sass.config.js` compiles
+
+### Fixes:
+
+- Browser Sync triggers reload whenever something happens in the `templates` or `public/assets` directory
+- Reworks SCSS and TypeScript paths so including globals no longer requires `../../../globals/folder/file` (ex: `import { BaseModule} from 'BaseModule'`)
+
 # 0.0.3 - 2019-04-07
 
 ### Adds
