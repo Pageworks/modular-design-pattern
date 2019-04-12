@@ -5,6 +5,8 @@
 - Adds: custom `sass.config.js` compile script
 - Adds: cache busting timestamp for CSS files
 - Adds: initial watch setup for automagically triggering `tsc`, `webpack` and `sass.config.js` compiles
+- Adds: build-tools directory to store most of the smaller/custom config files
+- Adds: `npm run watch` script to set webpack and TypeScript to use their watch mode flags
 
 ### Fixes:
 

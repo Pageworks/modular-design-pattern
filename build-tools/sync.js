@@ -6,7 +6,7 @@ for (let k in envConfig) {
   process.env[k] = envConfig[k]
 }
 
-browserSync.create('papertrain');
+browserSync.create('development');
 
 browserSync.init({
     proxy: process.env.DEV_URL
