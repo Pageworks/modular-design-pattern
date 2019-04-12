@@ -33,15 +33,16 @@
         "build": "npm run compile",
         "compile": "node ./build-tools/compile.config.js && npm-run-all compile:*",
         "compile:scripts": "tsc && cross-env NODE_ENV=production webpack --config ./webpack.config.js",
-        "compile:styles": "node ./build-tools/sass.config.js",
+        "compile:styles": "cross-env NODE_ENV=production node ./build-tools/sass.config.js",
         "compile:lint": "npm-run-all lint:*",
         "dev": "npm-run-all dev:*",
         "dev:typescript": "tsc",
         "dev:bundle": "cross-env NODE_ENV=development webpack --config ./webpack.config.js",
-        "dev:sass": "node ./build-tools/sass.config.js",
+        "dev:sass": "cross-env NODE_ENV=development node ./build-tools/sass.config.js",
         "watch": "run-p watch:*",
         "watch:typescript": "tsc -w",
         "watch:webpack": "webpack -w",
+        "watch:sass": "cross-env NODE_ENV=watch node ./build-tools/sass.config.js",
         "watch:sync": "node ./build-tools/sync.js"
     },
     "lint-staged": {
