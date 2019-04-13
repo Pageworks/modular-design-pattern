@@ -30,7 +30,6 @@
         "lint:typescript": "tslint *.ts -c ./build-tools/.tslintrc.js -p ./tsconfig.json -t verbose",
         "webpack": "cross-env NODE_ENV=development webpack --config ./webpack.config.js",
         "tsc": "tsc",
-        "build": "npm run compile",
         "compile": "node ./build-tools/compile.config.js && npm-run-all compile:*",
         "compile:scripts": "tsc && cross-env NODE_ENV=production webpack --config ./webpack.config.js",
         "compile:styles": "cross-env NODE_ENV=production node ./build-tools/sass.config.js",
@@ -43,7 +42,9 @@
         "watch:typescript": "tsc -w",
         "watch:webpack": "webpack -w",
         "watch:sass": "cross-env NODE_ENV=watch node ./build-tools/sass.config.js",
-        "watch:sync": "node ./build-tools/sync.js"
+        "watch:sync": "node ./build-tools/sync.js",
+        "build": "generate",
+        "generate": "generate"
     },
     "lint-staged": {
         "linters": {
@@ -57,9 +58,10 @@
         "@codewithkyle/state-manager": "^1.0.0",
         "animejs": "^3.0.1",
         "uuid": "^3.3.2",
-        "webpack": "^4.29.6"
+        "webpack": "^4.30.0"
     },
     "devDependencies": {
+        "@codewithkyle/black-box-generator": "^0.1.0",
         "browser-sync": "^2.26.3",
         "chalk": "^2.4.2",
         "cross-env": "^5.2.0",
@@ -75,7 +77,7 @@
         "tslint": "^5.15.0",
         "tslint-config-airbnb": "^5.11.1",
         "tslint-config-prettier": "^1.18.0",
-        "typescript": "^3.4.2",
+        "typescript": "^3.4.3",
         "watch": "^1.0.2",
         "webpack-cli": "^3.3.0"
     }

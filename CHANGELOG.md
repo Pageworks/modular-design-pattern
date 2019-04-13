@@ -1,4 +1,4 @@
-# 0.0.4 - 2019-04-12
+# 0.0.4 - 2019-04-14
 
 ### Adds:
 
@@ -8,6 +8,7 @@
 - Adds: build-tools directory to store most of the smaller/custom config files
 - Adds: `npm run watch` script to set webpack and TypeScript to use their watch mode flags
 - Adds: custom SASS watch and dev compiling script
+- Adds: [Black Box Generator](https://github.com/codewithkyle/black-box-generator) CLI tool for creating Components and Objects
 
 ### Fixes:
 
