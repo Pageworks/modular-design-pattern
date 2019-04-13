@@ -58,7 +58,7 @@ if(fs.existsSync('./.gitignore')){
             throw err;
         }
         
-        var newValue = data.replace(/vendor/g, '');
+        var newValue = file.replace(/vendor/g, '');
         fs.writeFile('./.gitignore', newValue, 'utf-8', (err)=>{
             gitignore.text = 'Vendors directory has been removed from the gitignore file';
             gitignore.succeed();
