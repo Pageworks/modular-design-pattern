@@ -1,10 +1,8 @@
-# REMOVE ME AFTER COMPOSER INSTALL
-/vendor
-# -------
+vendor
 
 # NPM
 # -------
-/node_modules
+node_modules
 
 # Craft CMS
 # -------

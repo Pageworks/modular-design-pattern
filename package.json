@@ -44,7 +44,8 @@
         "watch:sass": "cross-env NODE_ENV=watch node ./build-tools/sass.config.js",
         "watch:sync": "node ./build-tools/sync.js",
         "build": "generate",
-        "generate": "generate"
+        "generate": "generate",
+        "start": "node ./build-tools/startup.js"
     },
     "lint-staged": {
         "linters": {
