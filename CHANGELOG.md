@@ -9,7 +9,8 @@
 - Adds: `npm run watch` script to set webpack and TypeScript to use their watch mode flags
 - Adds: custom SASS watch and dev compiling script
 - Adds: [Black Box Generator](https://github.com/codewithkyle/black-box-generator) CLI tool for creating Components and Objects
-- Adds: custom startup script (`npm run start`) to help clean up unneeded project/framework files
+- Adds: custom startup script (`npm run starup`) to help clean up unneeded project/framework files
+- Adds: `.env` file generation section to the `startup.js` script
 
 ### Fixes:
 
