@@ -94,8 +94,6 @@ askQuestions = (async ()=>{
     }
 });
 
-return;
-
 const readme = ora();
 readme.spinner = 'dots';
 readme.text = 'Removing readme file';
@@ -146,7 +144,7 @@ gitignore.spinner = 'dots';
 gitignore.text = 'Removing license file';
 gitignore.start();
 if(fs.existsSync('./.gitignore')){
-    var data = fs.readFile('./.gitignore', 'utf-8', (err, file)=>{
+    fs.readFile('./.gitignore', 'utf-8', (err, file)=>{
         if(err){
             gitignore.text = 'Failed to open the gitignore file';
             gitignore.fail();
