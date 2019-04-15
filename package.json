@@ -45,7 +45,7 @@
         "watch:sync": "node ./build-tools/sync.js",
         "build": "generate",
         "generate": "generate",
-        "startup": "node ./build-tools/setup.js",
+        "create": "generate",
         "setup": "node ./build-tools/setup.js"
     },
     "lint-staged": {
@@ -63,7 +63,7 @@
         "webpack": "^4.30.0"
     },
     "devDependencies": {
-        "@codewithkyle/black-box-generator": "^0.1.3",
+        "@codewithkyle/black-box-generator": "^0.2.1",
         "browser-sync": "^2.26.3",
         "chalk": "^2.4.2",
         "clear": "^0.1.0",

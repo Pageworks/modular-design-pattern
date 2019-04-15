@@ -20,11 +20,4 @@ article{
         background: $brand-background-color;
         color: contrast($brand-background-color);
     }
-
-    &.-dark-background,
-    &.has-image,
-    &.has-video{
-        background: $dark-background-color;
-        color: $font-alt;
-    }
 }

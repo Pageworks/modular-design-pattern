@@ -2,12 +2,6 @@
 // Settings / Config / Colors
 // ==========================================================================
 
-/*
- * NOTE: `-alt` colours are used to style elements when they're within a section
- * that has the `$dark-background-color` applied. Test your colours on both backgrounds
- * at the example page.
-*/
-
 // Base Palette
 // =============================================================================
 $white:     #ffffff;
@@ -26,14 +20,12 @@ $black:     #1F2D3D;
 
 // Action Palette
 // =============================================================================
-$primary:       #45ADA8;
-$secondary:     #547980;
-$primary-alt:   #E5FCC2;
-$secondary-alt: #9DE0AD;
+$primary:       #7CFFC3;
+$secondary:     #85CAFF;
 
 // Interaction Settings
 // =============================================================================
-$primary-hover-opacity: 0.1;
+$primary-hover-opacity: 0.07;
 $primary-active-opacity: 0.15;
 
 // Font Palette
@@ -50,7 +42,6 @@ $selection-background-color: $snow;
 // =============================================================================
 $base-background-color:         $white;
 $secondary-background-color:    $snow;
-$dark-background-color:         $slate;
 $brand-background-color:        $secondary;
 
 // Alert Colors

@@ -3,6 +3,8 @@ const sass = require('node-sass');
 const glob = require("glob");
 const fs = require('fs');
 const rimraf = require("rimraf");
+const chalk = require('chalk');
+const ora = require('ora');
 
 if(process.env.NODE_ENV === 'watch'){
     console.log('Watching for SASS changes');
@@ -25,7 +27,7 @@ if(process.env.NODE_ENV === 'watch'){
 }
 
 function compileSASS(){
-    console.log('Compiling SASS');
+    console.log(chalk.white('Compiling SASS'));
 
     // Get all the base SCSS files from the base global scss directory
     const globalFiles = glob.sync('./global/sass/*.scss');
@@ -33,8 +35,10 @@ function compileSASS(){
     // Get all the SCSS files from the templates directory
     const templateFiles = glob.sync('./templates/**/*.scss');
 
+    const globalObjects = glob.sync('./global/sass/objects/*.scss');
+
     // Concat the arrays
-    const files = [...globalFiles, ...templateFiles];
+    const files = [...globalFiles, ...templateFiles, ...globalObjects];
 
     if(fs.existsSync('./public/assets/styles')){
         rimraf.sync('./public/assets/styles');
@@ -65,6 +69,7 @@ function compileSASS(){
                     const fileName = result.stats.entry.match(/[ \w-]+?(?=\.)/gi)[0];
                     if(fileName){
                         const newFile = './public/assets/styles/' + fileName + '.' + timestamp + '.css';
+                        console.log(chalk.hex('#ffffff').bold(file), chalk.hex('#8cf57b').bold(' [compiled]'));
                         fs.writeFile(newFile, result.css.toString(), function (err) {
                             if(err){ throw err };
                         });
