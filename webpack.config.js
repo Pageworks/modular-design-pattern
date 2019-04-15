@@ -2,6 +2,7 @@ const path = require('path');
 const glob = require("glob");
 const fs = require('fs');
 const rimraf = require("rimraf");
+const TerserPlugin = require('terser-webpack-plugin');
 
 // Create a timestamp for cache busting
 const timestamp = Date.now().toString().match(/.{8}$/g)[0];
@@ -32,7 +33,7 @@ for(let i = 0; i < components.length; i++){
 
 // Bundle modules
 module.exports = {
-    mode: 'none',
+    mode: (process.env.NODE_ENV === 'production') ? 'production' : 'none',
     entry: entries,
     output: {
         filename: '[name].'+timestamp+'.js',
@@ -65,5 +66,15 @@ module.exports = {
             },
           },
         },
+        minimizer: [new TerserPlugin({
+            terserOptions:{
+                ecma: 5,
+                mangle: false,
+                output: {
+                    beautify: false,
+                    comments: false
+                }
+            }
+        })]
     }
 };

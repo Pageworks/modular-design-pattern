@@ -4,6 +4,7 @@
 
 - Adds: `npm run setup` script runs `setup.js` (was `startup.js`)
 - Adds: moved `ModuleManager.wrangleMoudles()` method call into a new event listener using the new `pjax:scriptContentLoaded` event
+- Adds: `terser-webpack-plugin` for custom production minification
 
 ### Fixes
 

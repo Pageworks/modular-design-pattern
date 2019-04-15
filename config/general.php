@@ -25,8 +25,8 @@ return [
         'purgePendingUsersDuration'     => 'P1M',
 
         // Leave at bottom of global settings
-        'jsCacheBustTimestamp' => '39810057',
-        'cssCacheBustTimestamp' => '39810847',
+        'jsCacheBustTimestamp' => '41428289',
+        'cssCacheBustTimestamp' => '41429429',
     ],
 
     // Dev environment settings
