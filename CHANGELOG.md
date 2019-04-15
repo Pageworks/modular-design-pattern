@@ -1,3 +1,13 @@
+# 0.0.4 - 2019-04-21
+
+### Adds
+
+- Adds: `npm run setup` script runs `setup.js` (was `startup.js`)
+
+### Removes
+
+- Removes: `npm run startup` script
+
 # 0.0.4 - 2019-04-14
 
 ### Adds:

@@ -1,7 +1,7 @@
 {
     "name": "@codewithkyle/the-box",
     "description": "A box of tools for building Craft CMS websites.",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "author": "Kyle Andrews <andrewskyle28@gmail.com> (http://codewithkyle.com/)",
     "license": "MIT",
     "repository": {
@@ -45,7 +45,8 @@
         "watch:sync": "node ./build-tools/sync.js",
         "build": "generate",
         "generate": "generate",
-        "startup": "node ./build-tools/startup.js"
+        "startup": "node ./build-tools/setup.js",
+        "setup": "node ./build-tools/setup.js"
     },
     "lint-staged": {
         "linters": {
