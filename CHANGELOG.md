@@ -5,11 +5,13 @@
 - Adds: `npm run setup` script runs `setup.js` (was `startup.js`)
 - Adds: moved `ModuleManager.wrangleMoudles()` method call into a new event listener using the new `pjax:scriptContentLoaded` event
 - Adds: `terser-webpack-plugin` for custom production minification
+- Adds: SASS compiling console logs to the `sass.config.js` file
 
 ### Fixes
 
 - Fixes: modules call `ModuleManager.wrangleModles()` when they're added to the global scope
 - Fixes: moved module instantiation into a try catch block and `console.warns` when modules are undefined
+- Fixes: updates package description
 
 ### Removes
 
