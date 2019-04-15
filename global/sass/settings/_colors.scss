@@ -11,11 +11,15 @@
 // Base Palette
 // =============================================================================
 $white:     #ffffff;
-$off-white: #fafafa;
-$light-gray:#eeeeee;
-$black:     #000000;
-$off-black: #414141;
-$cool-black:#4b4e6d;
+$snow:      #F9FAFC;
+$grey-1:    #EFF2F7;
+$grey-2:    #E5E9F2;
+$grey-3:    #E0E6ED;
+$grey-4:    #D3DCE6;
+$grey-5:    #C0CCDA;
+$slate:     #3C4858;
+$steel:     #273444;
+$black:     #1F2D3D;
 
 // Brand Palette
 // =============================================================================
@@ -34,19 +38,19 @@ $primary-active-opacity: 0.15;
 
 // Font Palette
 // =============================================================================
-$font-base:     $off-black;
+$font-base:     $slate;
 $font-alt:      $white;
 
 // Selection
 // =============================================================================
 $selection-text-color:       #3b83f9;
-$selection-background-color: $light-gray;
+$selection-background-color: $snow;
 
 // Background Colors
 // =============================================================================
 $base-background-color:         $white;
-$secondary-background-color:    $off-white;
-$dark-background-color:         $off-black;
+$secondary-background-color:    $snow;
+$dark-background-color:         $slate;
 $brand-background-color:        $secondary;
 
 // Alert Colors
