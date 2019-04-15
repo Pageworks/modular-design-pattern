@@ -32,7 +32,7 @@ for(let i = 0; i < components.length; i++){
 
 // Bundle modules
 module.exports = {
-    mode: process.env.NODE_ENV === 'production' ? 'production' : 'none',
+    mode: 'none',
     entry: entries,
     output: {
         filename: '[name].'+timestamp+'.js',

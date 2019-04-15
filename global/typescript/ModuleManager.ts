@@ -39,7 +39,7 @@ export class ModuleManager{
      * If the module hasn't been created (no uuid data attribute), create one.
      */
     private static initModules():void{
-
+        console.log('Getting modules');
         // Get all elements with a `data-module` attribute
         const moduleEls:Array<HTMLElement> = Array.from(document.body.querySelectorAll('[data-module]'));
 

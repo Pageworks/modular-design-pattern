@@ -55,14 +55,14 @@
     },
     "dependencies": {
         "@codewithkyle/device-manager": "^1.2.1",
-        "@codewithkyle/pjax": "^2.0.0",
+        "@codewithkyle/pjax": "^2.0.1",
         "@codewithkyle/state-manager": "^1.0.0",
         "animejs": "^3.0.1",
         "uuid": "^3.3.2",
         "webpack": "^4.30.0"
     },
     "devDependencies": {
-        "@codewithkyle/black-box-generator": "^0.1.0",
+        "@codewithkyle/black-box-generator": "^0.1.1",
         "browser-sync": "^2.26.3",
         "chalk": "^2.4.2",
         "clear": "^0.1.0",

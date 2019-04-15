@@ -1,4 +1,7 @@
 {% do view.registerJsFile(siteUrl|trim('/') ~ '/assets/scripts/header.' ~ craft.app.config.general.jsCacheBustTimestamp ~ '.js', { "async":"async" }) %}
 {% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/header.' ~ craft.app.config.general.cssCacheBustTimestamp ~ '.css') %}
 
-<header class="c-header"></header>
+<header class="c-header">
+    <a href="{{ siteUrl|trim('/') }}/test1">Test 1</a><br/>
+    <a href="{{ siteUrl }}">Home</a>
+</header>
