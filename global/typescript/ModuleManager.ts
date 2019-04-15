@@ -6,13 +6,25 @@ export class ModuleManager{
     private static _modules:Array<IModule> = [];
 
     constructor(){
+
+        if(Env.isDebug){
+            console.log('%c[Module Manager] '+`%csuccessfully started`,'color:#4882fd','color:#eee');
+        }
+
         ModuleManager.initModules();
+    }
+
+    /**
+     * Called when a new module has been loaded into the global scope
+     */
+    public static wrangleModules():void{
+        this.initModules();
     }
 
     /**
      * Called when a new page is loaded via AJAX.
      */
-    public static wrangleModules():void{
+    public static manageModules():void{
         this.initModules();
         this.removeModules();
     }
@@ -39,12 +51,19 @@ export class ModuleManager{
      * If the module hasn't been created (no uuid data attribute), create one.
      */
     private static initModules():void{
-        console.log('Getting modules');
+
+        if(Env.isDebug){
+            console.log('%c[Module Manager] '+`%cinstantiating new modules`,'color:#4882fd','color:#eee');
+        }
+
         // Get all elements with a `data-module` attribute
         const moduleEls:Array<HTMLElement> = Array.from(document.body.querySelectorAll('[data-module]'));
 
         // Do nothing if no modules are required
         if(!moduleEls.length){
+            if(Env.isDebug){
+                console.log('%c[Module Manager] '+`%cno modules are required`,'color:#4882fd','color:#eee');
+            }
             return;
         }
 
@@ -70,12 +89,24 @@ export class ModuleManager{
                             const newModule = new modules[id].prototype.constructor(el, newUUID, this);
                             this._modules.push(newModule);
                             newModule.init();
+
+                            if(Env.isDebug){
+                                console.log('%c[Module Manager] '+`%ccreated new %c${ id } %cmodule: %c${ newUUID }`,'color:#4882fd','color:#eee','color:#48eefd','color:#eee','color:#48eefd');
+                            }
+
+                            // Check if the module was waiting for its class
+                            if(el.dataset.waitingForModule){
+                                // Remove the attribute if it was waiting
+                                el.removeAttribute('data-waiting-for-module');
+                            }
                         }
                         // Catch if the module is undefined
                         catch{
                             if(Env.isDebug){
-                                console.warn(`Module ${ id } is undefined`);
+                                console.warn('%c[Module Manager] '+`%cmodule %c${ id } %cis undefined`,'color:#4882fd','color:#eee', 'color:#48eefd', 'color:#eee');
                             }
+                            // The module is waiting for its class to load
+                            el.dataset.waitingForModule = 'true';
                         }
                     });
                 }
@@ -88,14 +119,22 @@ export class ModuleManager{
      * When a module no longer has an element destroy it.
      */
     private static removeModules():void{
+
+        if(Env.isDebug){
+            console.log('%c[Module Manager] '+`%cremoving dead modules`,'color:#4882fd','color:#eee');
+        }
+
+        // Do nothing if no modules need to be removed
+        if(!this._modules.length){
+            if(Env.isDebug){
+                console.log('%c[Module Manager] '+`%cno modules needed to be removed`,'color:#4882fd','color:#eee');
+            }
+            return;
+        }
+
         // Get all elements with a `data-module` attribute
         const moduleEls:Array<HTMLElement> = Array.from(document.body.querySelectorAll('[data-module]'));
         const deadModules:Array<IModule> = [];
-
-        // Do nothing if no elements needing modules exist
-        if(!moduleEls.length){
-            return;
-        }
 
         // Loop through all of the modules that have been created
         this._modules.forEach((module)=>{
@@ -107,7 +146,7 @@ export class ModuleManager{
             moduleEls.forEach((el:HTMLElement)=>{
 
                 // Check if any of the elements have a matching UUID to the module
-                if(el.dataset.uuid === module.uuid){
+                if(el.dataset.uuid === module.uuid || el.dataset.waitingForModule){
                     survived = true;
                     return;
                 }
@@ -139,9 +178,17 @@ export class ModuleManager{
 
                         // Splice the module from the array
                         this._modules.splice(index, 1);
+
+                        if(Env.isDebug){
+                            console.log('%c[Module Manager] '+`%cremoved module: %c${ module.uuid }`,'color:#4882fd','color:#eee', 'color:#48eefd');
+                        }
                     }
                 });
             });
+        }
+
+        if(Env.isDebug){
+            console.log('%c[Module Manager] '+`%cfinished removing the dead modules`,'color:#4882fd','color:#eee');
         }
     }
 
@@ -154,9 +201,9 @@ export class ModuleManager{
         // Ensure a UUID was provided
         if(!uuid){
             if(Env.isDebug){
-                console.error('UUID value was not provided');
-                return;
+                console.error('%c[Module Manager] '+`%cUUID was not provided`,'color:#4882fd','color:#eee');
             }
+            return;
         }
 
         // Loop through all of the modules
@@ -173,6 +220,10 @@ export class ModuleManager{
 
                 // Splice the module from the array
                 this._modules.splice(index, 1);
+
+                if(Env.isDebug){
+                    console.log('%c[Module Manager] '+`%cmodule with UUID ${ uuid } has been removed`,'color:#4882fd','color:#eee');
+                }
             }
         });
     }

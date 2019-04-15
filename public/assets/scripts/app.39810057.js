@@ -13,7 +13,7 @@ var App = (function () {
     function App() {
         var _this = this;
         this.invokeModuleManager = function () {
-            ModuleManager_1.ModuleManager.wrangleModules();
+            ModuleManager_1.ModuleManager.manageModules();
         };
         this.handlePageLoad = function () {
             _this.reinit();

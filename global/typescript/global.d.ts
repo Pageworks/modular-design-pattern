@@ -17,6 +17,7 @@ interface IModule{
 
 declare class ModuleManager{
     public static wrangleModules:   Function;
+    public static manageModules:    Function;
     public static deleteModule(uuid:string):void;
 }
 

@@ -6,10 +6,6 @@ export class DemoComponent1 extends BaseModule{
 
     constructor(el:HTMLElement, uuid:string, manager:ModuleManager){
         super(el, uuid, manager);
-
-        if(this.isDebug){
-            console.log(`Creating a new ${ DemoComponent1.MODULE_NAME } module`);
-        }
     }
 
     /**

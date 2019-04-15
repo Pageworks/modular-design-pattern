@@ -34,8 +34,8 @@ class App{
     }
 
     private invokeModuleManager:EventListener = ()=>{
-        // Try to wrangle modules
-        ModuleManager.wrangleModules();
+        // Manage the modules
+        ModuleManager.manageModules();
     }
 
     /**

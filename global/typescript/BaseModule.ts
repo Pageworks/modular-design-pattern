@@ -20,9 +20,6 @@ export class BaseModule{
 
     public destroy(MODULE_NAME:string):void{
         this.el.removeAttribute('data-uuid');
-        if(this.isDebug){
-            console.log(`${ MODULE_NAME } has been removed`);
-        }
     }
 
 }

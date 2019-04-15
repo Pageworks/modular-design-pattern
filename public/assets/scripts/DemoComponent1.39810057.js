@@ -24,11 +24,7 @@ var ModuleManager_1 = __webpack_require__(16);
 var DemoComponent1 = (function (_super) {
     __extends(DemoComponent1, _super);
     function DemoComponent1(el, uuid, manager) {
-        var _this = _super.call(this, el, uuid, manager) || this;
-        if (_this.isDebug) {
-            console.log("Creating a new " + DemoComponent1.MODULE_NAME + " module");
-        }
-        return _this;
+        return _super.call(this, el, uuid, manager) || this;
     }
     DemoComponent1.prototype.init = function () {
     };
