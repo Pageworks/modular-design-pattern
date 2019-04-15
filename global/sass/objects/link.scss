@@ -4,6 +4,7 @@
 .g-link{
     position: relative;
     display: inline-block;
+    color: $random;
 
     &::before,
     &::after{

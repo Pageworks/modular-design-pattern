@@ -26,8 +26,8 @@ return [
         'useProjectConfigFile'          => true,
 
         // Leave at bottom of global settings
-        'jsCacheBustTimestamp' => '56563778',
-        'cssCacheBustTimestamp' => '56564897',
+        'jsCacheBustTimestamp' => '57288249',
+        'cssCacheBustTimestamp' => '57289351',
     ],
 
     // Dev environment settings

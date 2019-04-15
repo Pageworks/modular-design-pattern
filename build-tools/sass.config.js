@@ -64,7 +64,7 @@ function compileSASS(){
             },
             function(error, result){
                 if (error) {
-                    console.log(error);
+                    console.log(chalk.hex('#f57b7b').bold(`SASS Compile Error:`), chalk.white(`${ error.message } at line`), chalk.yellow(error.line), chalk.hex('#ffffff').bold(error.file));
                 }else{
                     const fileName = result.stats.entry.match(/[ \w-]+?(?=\.)/gi)[0];
                     if(fileName){
