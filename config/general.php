@@ -23,10 +23,11 @@ return [
         'invalidUserTokenPath'          => 'users/invalid',
         'setPasswordPath'               => 'users/password',
         'purgePendingUsersDuration'     => 'P1M',
+        'useProjectConfigFile'          => true,
 
         // Leave at bottom of global settings
-        'jsCacheBustTimestamp' => '54781481',
-        'cssCacheBustTimestamp' => '54782594',
+        'jsCacheBustTimestamp' => '56563778',
+        'cssCacheBustTimestamp' => '56564897',
     ],
 
     // Dev environment settings

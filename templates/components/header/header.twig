@@ -1,8 +1,9 @@
 {% do view.registerJsFile(siteUrl|trim('/') ~ '/assets/scripts/header.' ~ craft.app.config.general.jsCacheBustTimestamp ~ '.js', { "async":"async" }) %}
 {% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/header.' ~ craft.app.config.general.cssCacheBustTimestamp ~ '.css') %}
 
+{# Additional Stylesheet Includes #}
+{% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/link.' ~ craft.app.config.general.cssCacheBustTimestamp ~ '.css') %}
+
 <header class="c-header">
-    <a href="{{ siteUrl }}">Home</a></br>
-    <a href="{{ siteUrl|trim('/') }}/test1">Test 1</a><br/>
-    <a href="{{ siteUrl|trim('/') }}/test2">Test 2</a>
+    <a class="g-link" href="{{ siteUrl }}">Home</a>
 </header>
