@@ -1,8 +1,14 @@
-# 0.0.4 - 2019-04-21
+# 0.0.5 - 2019-04-21
 
 ### Adds
 
 - Adds: `npm run setup` script runs `setup.js` (was `startup.js`)
+- Adds: moved `ModuleManager.wrangleMoudles()` method call into a new event listener using the new `pjax:scriptContentLoaded` event
+
+### Fixes
+
+- Fixes: modules call `ModuleManager.wrangleModles()` when they're added to the global scope
+- Fixes: moved module instantiation into a try catch block and `console.warns` when modules are undefined
 
 ### Removes
 

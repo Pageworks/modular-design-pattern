@@ -64,17 +64,17 @@ export class ModuleManager{
                     // Loop through all of the names
                     moduleNames.forEach((id:string)=>{
 
-                        // Check that the class object is defined
-                        if(modules[id] !== undefined){
-
+                        // Try to create the module
+                        try{
                             // Create a new instance of the module
                             const newModule = new modules[id].prototype.constructor(el, newUUID, this);
                             this._modules.push(newModule);
                             newModule.init();
                         }
-                        else if(modules[id] === undefined){
+                        // Catch if the module is undefined
+                        catch{
                             if(Env.isDebug){
-                                console.error(`Module ${ id } is undefined`);
+                                console.warn(`Module ${ id } is undefined`);
                             }
                         }
                     });

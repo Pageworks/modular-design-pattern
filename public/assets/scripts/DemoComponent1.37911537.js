@@ -20,6 +20,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var BaseModule_1 = __webpack_require__(21);
+var ModuleManager_1 = __webpack_require__(16);
 var DemoComponent1 = (function (_super) {
     __extends(DemoComponent1, _super);
     function DemoComponent1(el, uuid, manager) {
@@ -30,16 +31,6 @@ var DemoComponent1 = (function (_super) {
         return _this;
     }
     DemoComponent1.prototype.init = function () {
-        var _this = this;
-        console.log('Component 1 started');
-        this.el.addEventListener('mouseenter', function (e) {
-            if (_this.el.classList.contains('is-alt')) {
-                _this.el.classList.remove('is-alt');
-            }
-            else {
-                _this.el.classList.add('is-alt');
-            }
-        });
     };
     DemoComponent1.prototype.destroy = function () {
         _super.prototype.destroy.call(this, DemoComponent1.MODULE_NAME);
@@ -49,9 +40,9 @@ var DemoComponent1 = (function (_super) {
 }(BaseModule_1.BaseModule));
 exports.DemoComponent1 = DemoComponent1;
 modules[DemoComponent1.MODULE_NAME] = DemoComponent1;
-console.log('loaded');
+ModuleManager_1.ModuleManager.wrangleModules();
 
 
 /***/ })
 
-},[[20,0,2]]]);
+},[[20,0,4,2]]]);

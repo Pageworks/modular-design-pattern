@@ -30,6 +30,12 @@ class App{
 
         // Listen for a successful page transition event
         document.addEventListener('pjax:complete', this.handlePageLoad);
+        document.addEventListener('pjax:scriptContentLoaded', this.invokeModuleManager);
+    }
+
+    private invokeModuleManager:EventListener = ()=>{
+        // Try to wrangle modules
+        ModuleManager.wrangleModules();
     }
 
     /**
@@ -37,7 +43,6 @@ class App{
      */
     private handlePageLoad:EventListener = ()=>{
         this.reinit();
-
     }
 
     /**
@@ -45,12 +50,10 @@ class App{
      * Any classes/packages that need to manage their DOM hooks should be told to reinit.
      */
     public reinit():void{
-
         // Update custom touch status class tracking
-        if(this._deviceManager !== null){ this._deviceManager.reinit(); }
-
-        // Create and destroy modules
-        ModuleManager.wrangleModules();
+        if(this._deviceManager !== null){
+            this._deviceManager.reinit();
+        }
     }
 }
 

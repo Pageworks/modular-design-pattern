@@ -1,4 +1,5 @@
 import { BaseModule } from 'BaseModule';
+import { ModuleManager } from 'ModuleManager';
 
 export class DemoComponent1 extends BaseModule{
     public static MODULE_NAME:string = 'DemoComponent1';
@@ -15,14 +16,7 @@ export class DemoComponent1 extends BaseModule{
      * Called when the module is created.
      */
     init(){
-        console.log('Component 1 started');
-        this.el.addEventListener('mouseenter', (e)=>{
-            if(this.el.classList.contains('is-alt')){
-                this.el.classList.remove('is-alt');
-            }else{
-                this.el.classList.add('is-alt');
-            }
-        });
+
     }
 
     /**
@@ -35,5 +29,4 @@ export class DemoComponent1 extends BaseModule{
 
 // Adds module to the global Modules object
 modules[DemoComponent1.MODULE_NAME] = DemoComponent1;
-
-console.log('loaded');
+ModuleManager.wrangleModules();

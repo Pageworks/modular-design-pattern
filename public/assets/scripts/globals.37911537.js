@@ -1,42 +1,35 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
 
-/***/ 0:
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Env_1 = __webpack_require__(1);
-var pjax_1 = __webpack_require__(2);
-var device_manager_1 = __webpack_require__(15);
-var ModuleManager_1 = __webpack_require__(16);
-var App = (function () {
-    function App() {
-        var _this = this;
-        this.handlePageLoad = function () {
-            _this.reinit();
-        };
-        this._deviceManager = null;
-        this.init();
-    }
-    App.prototype.init = function () {
-        new Env_1.Env();
-        new pjax_1.default({ debug: Env_1.Env.isDebug });
-        this._deviceManager = new device_manager_1.default(Env_1.Env.isDebug, true);
-        new ModuleManager_1.ModuleManager();
-        document.addEventListener('pjax:complete', this.handlePageLoad);
-    };
-    App.prototype.reinit = function () {
-        if (this._deviceManager !== null) {
-            this._deviceManager.reinit();
+var Env = (function () {
+    function Env() {
+        if (window.location.hostname.match(/.local/gi)) {
+            Env.setDebug(true);
         }
-        ModuleManager_1.ModuleManager.wrangleModules();
+        else if (document.documentElement.getAttribute('debug') !== null) {
+            Env.setDebug(true);
+        }
+    }
+    Env.setDebug = function (status) {
+        Env.isDebug = status;
     };
-    return App;
+    Env.PJAX_CONTAINER = '.js-pjax';
+    Env.SCROLL_TRIGGER = 100;
+    Env.isDebug = false;
+    Env.EASING = {
+        ease: 'cubicBezier(0.4, 0.0, 0.2, 1)',
+        in: 'cubicBezier(0.0, 0.0, 0.2, 1)',
+        out: 'cubicBezier(0.4, 0.0, 1, 1)',
+        sharp: 'cubicBezier(0.4, 0.0, 0.6, 1)'
+    };
+    return Env;
 }());
-(function () {
-    new App();
-})();
+exports.Env = Env;
 
 
 /***/ }),
@@ -77,14 +70,14 @@ var ModuleManager = (function () {
                 var newUUID_1 = uuid();
                 if (moduleNames.length) {
                     moduleNames.forEach(function (id) {
-                        if (modules[id] !== undefined) {
+                        try {
                             var newModule = new modules[id].prototype.constructor(el, newUUID_1, _this);
                             _this._modules.push(newModule);
                             newModule.init();
                         }
-                        else if (modules[id] === undefined) {
+                        catch (_a) {
                             if (Env_1.Env.isDebug) {
-                                console.error("Module " + id + " is undefined");
+                                console.warn("Module " + id + " is undefined");
                             }
                         }
                     });
@@ -145,6 +138,35 @@ var ModuleManager = (function () {
 exports.ModuleManager = ModuleManager;
 
 
+/***/ }),
+
+/***/ 21:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Env_1 = __webpack_require__(1);
+var BaseModule = (function () {
+    function BaseModule(el, uuid, manager) {
+        this.el = el;
+        this.uuid = uuid;
+        this.manager = manager;
+        this.isDebug = Env_1.Env.isDebug;
+        this.el.dataset.uuid = this.uuid;
+    }
+    BaseModule.prototype.init = function () { };
+    BaseModule.prototype.destroy = function (MODULE_NAME) {
+        this.el.removeAttribute('data-uuid');
+        if (this.isDebug) {
+            console.log(MODULE_NAME + " has been removed");
+        }
+    };
+    return BaseModule;
+}());
+exports.BaseModule = BaseModule;
+
+
 /***/ })
 
-},[[0,0,3,4,2]]]);
+}]);
