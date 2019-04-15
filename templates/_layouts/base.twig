@@ -51,7 +51,8 @@
         <!-- Critcial CSS -->
         <style>
             .c-transition{
-                @include size(100vw, 4px);
+                width: 100vw;
+                height: 4px;
                 width: 100vw;
                 height: 4px;
                 position: fixed;
@@ -59,8 +60,8 @@
                 left: 0;
                 z-index: 999999;
                 transform: translate3d(0, -101%, 0);
-                transition: transform 125ms $ease-sharp;
-                background: $off-white;
+                transition: transform 125ms cubic-bezier(0.4, 0.0, 0.6, 1);
+                background: #fafafa;
                 overflow: hidden;
                 display: inline-block;
                 opacity: 0;
@@ -75,7 +76,7 @@
             html.dom-is-loading .c-transition{
                 transform: translate3d(0, 0, 0);
                 opacity: 1;
-                transition: transform 150ms $ease-in;
+                transition: transform 150ms cubic-bezier(0.0, 0.0, 0.2, 1);
             }
 
             html.dom-is-loading .c-transition .c-transition_primary{
@@ -103,7 +104,7 @@
 
             .c-transition .c-transition_primary::before{
                 content: "";
-                background: $notice;
+                background: #3b83f9;
                 display: inline-block;
                 position: absolute;
                 width: 100%;
@@ -119,7 +120,7 @@
 
             .c-transition .c-transition_secondary::before{
                 content: "";
-                background: $notice;
+                background: #3b83f9;
                 display: inline-block;
                 position: absolute;
                 width: 100%;

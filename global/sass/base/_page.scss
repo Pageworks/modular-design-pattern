@@ -19,11 +19,9 @@ html
     color: $font-base; /* [1] */
     font-size: $base-font-size;
     overflow-y: scroll; /* [2] */
-    overflow-x: hidden;
     min-height: 100vh; /* [3] */
     text-align: left;
     position: relative;
-    scroll-behavior: smooth;
 
     *{
         box-sizing: border-box;
@@ -40,10 +38,11 @@ html
 body{
     background: $base-background-color;
     font-size: 1rem; /* [1] */
+    overflow-x: hidden;
+    padding-top: 96px;
 
     main{
         min-height: 80vh;
-        overflow-x: hidden;
     }
 }
 
