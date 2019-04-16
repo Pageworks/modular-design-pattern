@@ -13,7 +13,7 @@ export class Env {
 
 
     constructor(){
-        if(window.location.hostname.match(/.local/gi)){
+        if(window.location.hostname.match(/.local/)){
             // Checks if the hostname is set to `.local`
             Env.setDebug(true);
         }
@@ -31,3 +31,5 @@ export class Env {
         Env.isDebug = status;
     }
 }
+
+new Env();

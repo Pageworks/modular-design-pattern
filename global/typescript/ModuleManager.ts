@@ -6,11 +6,6 @@ export class ModuleManager{
     private static _modules:Array<IModule> = [];
 
     constructor(){
-
-        if(Env.isDebug){
-            console.log('%c[Module Manager] '+`%csuccessfully started`,'color:#4882fd','color:#eee');
-        }
-
         ModuleManager.initModules();
     }
 
@@ -18,6 +13,9 @@ export class ModuleManager{
      * Called when a new module has been loaded into the global scope
      */
     public static wrangleModules():void{
+        if(Env.isDebug){
+            console.log('%c[Module Manager] '+`%cinstantiating lazy loaded modules`,'color:#4882fd','color:#eee');
+        }
         this.initModules();
     }
 
@@ -25,6 +23,9 @@ export class ModuleManager{
      * Called when a new page is loaded via AJAX.
      */
     public static manageModules():void{
+        if(Env.isDebug){
+            console.log('%c[Module Manager] '+`%cmanaging modules after page load`,'color:#4882fd','color:#eee');
+        }
         this.initModules();
         this.removeModules();
     }
@@ -51,11 +52,6 @@ export class ModuleManager{
      * If the module hasn't been created (no uuid data attribute), create one.
      */
     private static initModules():void{
-
-        if(Env.isDebug){
-            console.log('%c[Module Manager] '+`%cinstantiating new modules`,'color:#4882fd','color:#eee');
-        }
-
         // Get all elements with a `data-module` attribute
         const moduleEls:Array<HTMLElement> = Array.from(document.body.querySelectorAll('[data-module]'));
 
@@ -90,10 +86,6 @@ export class ModuleManager{
                             this._modules.push(newModule);
                             newModule.init();
 
-                            if(Env.isDebug){
-                                console.log('%c[Module Manager] '+`%ccreated new %c${ id } %cmodule: %c${ newUUID }`,'color:#4882fd','color:#eee','color:#48eefd','color:#eee','color:#48eefd');
-                            }
-
                             // Check if the module was waiting for its class
                             if(el.dataset.waitingForModule){
                                 // Remove the attribute if it was waiting
@@ -102,11 +94,13 @@ export class ModuleManager{
                         }
                         // Catch if the module is undefined
                         catch{
-                            if(Env.isDebug){
-                                console.warn('%c[Module Manager] '+`%cmodule %c${ id } %cis undefined`,'color:#4882fd','color:#eee', 'color:#48eefd', 'color:#eee');
+                            if(!el.dataset.waitingForModule){
+                                if(Env.isDebug){
+                                    console.warn('%c[Module Manager] '+`%cmodule %c${ id } %cis undefined`,'color:#4882fd','color:#eee', 'color:#48eefd', 'color:#eee');
+                                }
+                                // The module is waiting for its class to load
+                                el.dataset.waitingForModule = 'true';
                             }
-                            // The module is waiting for its class to load
-                            el.dataset.waitingForModule = 'true';
                         }
                     });
                 }

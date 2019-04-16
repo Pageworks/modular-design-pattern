@@ -17,9 +17,6 @@ class App{
      * Use this method to launch any additional classes/packages.
      */
     private init(): void{
-        // Start the Enviroment class
-        new Env();
-
         // Start Pjax
         new Pjax({ debug: Env.isDebug });
 
