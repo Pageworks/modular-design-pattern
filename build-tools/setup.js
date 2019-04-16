@@ -79,7 +79,7 @@ askQuestions = (async ()=>{
                 modifiedFile = modifiedFile.replace(/SYSTEM_NAME="REPLACE_ME"/, `SYSTEM_NAME="${ projectDetails.projectName }"`);
                 modifiedFile = modifiedFile.replace(/SYSTEM_EMAIL_NAME="REPLACE_ME"/, `SYSTEM_EMAIL_NAME="${ projectDetails.projectName }"`);
                 modifiedFile = modifiedFile.replace(/SYSTEM_EMAIL_ADDRESS="REPLACE_ME"/, `SYSTEM_EMAIL_ADDRESS="no-reply@${ projectDetails.devUrl }"`);
-                
+
                 fs.writeFile('.env', modifiedFile, (err)=>{
                     if(err){
                         envGenSpinner.text = 'Failed to save the enviroment file';
@@ -107,6 +107,8 @@ if(fs.existsSync('./README.md')){
         readme.text = 'Readme has been removed';
         readme.succeed();
     });
+}else{
+    readme.stop();
 }
 
 const changelog = ora();
@@ -122,6 +124,8 @@ if(fs.existsSync('./CHANGELOG.md')){
         changelog.text = 'Changelog has been removed';
         changelog.succeed();
     });
+}else{
+    changelog.stop();
 }
 
 const license = ora();
@@ -137,6 +141,8 @@ if(fs.existsSync('./LICENSE')){
         license.text = 'License has been removed';
         license.succeed();
     });
+}else{
+    license.stop();
 }
 
 const gitignore = ora();
@@ -150,11 +156,13 @@ if(fs.existsSync('./.gitignore')){
             gitignore.fail();
             throw err;
         }
-        
+
         var newValue = file.replace(/vendor/g, '');
         fs.writeFile('./.gitignore', newValue, 'utf-8', (err)=>{
             gitignore.text = 'Vendors directory has been removed from the gitignore file';
             gitignore.succeed();
         });
     });
+}else{
+    gitignore.stop();
 }

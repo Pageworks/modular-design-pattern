@@ -1,4 +1,4 @@
-dateModified: 1555355672
+dateModified: 1555357693
 email:
   fromEmail: $SYSTEM_EMAIL_ADDRESS
   fromName: $SYSTEM_EMAIL_NAME
@@ -8,6 +8,56 @@ email:
 fieldGroups:
   95a08367-fb87-4b1a-b522-7d495b0ff6f9:
     name: Common
+fields:
+  a2051486-4c31-4747-a0eb-88914de74a6a:
+    name: 'Demo Matrix'
+    handle: demoMatrix
+    instructions: ''
+    searchable: true
+    translationMethod: site
+    translationKeyFormat: null
+    type: craft\fields\Matrix
+    settings:
+      minBlocks: ''
+      maxBlocks: ''
+      contentTable: '{{%matrixcontent_demomatrix}}'
+      localizeBlocks: false
+    contentColumnType: string
+    fieldGroup: 95a08367-fb87-4b1a-b522-7d495b0ff6f9
+matrixBlockTypes:
+  d1ce31cc-b51d-4934-a489-616d493d72ce:
+    field: a2051486-4c31-4747-a0eb-88914de74a6a
+    name: 'Block 1'
+    handle: block1
+    sortOrder: 1
+    fields:
+      b8b85436-4867-4a5b-a333-8068cfa68a53:
+        name: Heading
+        handle: heading
+        instructions: ''
+        searchable: true
+        translationMethod: none
+        translationKeyFormat: null
+        type: craft\fields\PlainText
+        settings:
+          placeholder: ''
+          code: ''
+          multiline: ''
+          initialRows: '4'
+          charLimit: '48'
+          columnType: text
+        contentColumnType: text
+        fieldGroup: null
+    fieldLayouts:
+      d096ec2b-b1e7-46f9-ac2f-a5f803763545:
+        tabs:
+          -
+            name: Content
+            sortOrder: 1
+            fields:
+              b8b85436-4867-4a5b-a333-8068cfa68a53:
+                required: true
+                sortOrder: 1
 siteGroups:
   320dbaef-a3c8-41d0-9ef6-f50b94891b6e:
     name: Default
