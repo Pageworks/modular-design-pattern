@@ -1,15 +1,15 @@
-# The Box 📦
+# 📦 The Box
 
 It's hard to think outside the box, when you don't have the box. [Start with the box](https://github.com/codewithkyle/the-box/releases).
 
 ## Table of Contents
 
-1. [The Goals](#the-goals)
-1. [The License](#the-license)
+1. [Goals](#project-goals)
+1. [License](#license)
 1. [Preface](#preface)
 1. [Infrastructure](#infrastructure)
 
-## The Goals
+## Project Goals
 
 ### User Focused
 
@@ -31,7 +31,7 @@ Motion focuses attention and maintains continuity, through subtle feedback and c
 
 Projects should be optimized for the best user experience across all platforms. The basic product should retain the design and feel of the target platform, however, the user interactions, content, and motion should change to work best for the active platform.
 
-## The License
+## License
 
 The box is published under the [MIT](https://github.com/codewithkyle/the-box/blob/master/LICENSE) license. Enjoy.
 
