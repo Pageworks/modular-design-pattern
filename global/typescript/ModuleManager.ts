@@ -221,4 +221,34 @@ export class ModuleManager{
             }
         });
     }
+
+    /**
+     * Creates a module on an element.
+     * @param moduleId - `string` key of the module in the global `modules` object
+     * @param el - `HTMLElement` that the module will be attached to
+     */
+    public static createModule(moduleId:string, el:HTMLElement):void{
+        if(typeof modules[moduleId] === undefined){
+            if(Env.isDebug){
+                console.error('%c[Module Manager] '+`%cmodule %c${ moduleId } %cis undefined`,'color:#4882fd','color:#eee', 'color:#48eefd', 'color:#eee');
+            }
+            return;
+        }
+
+        const newUUID = uuid();
+
+        // Try to create the module
+        try{
+            // Create a new instance of the module
+            const newModule = new modules[moduleId].prototype.constructor(el, newUUID, this);
+            this._modules.push(newModule);
+            newModule.init();
+        }
+        // Catch if the module is undefined
+        catch{
+            if(Env.isDebug){
+                console.error('%c[Module Manager] '+`%cmodule %c${ moduleId } %cis undefined`,'color:#4882fd','color:#eee', 'color:#48eefd', 'color:#eee');
+            }
+        }
+    }
 }

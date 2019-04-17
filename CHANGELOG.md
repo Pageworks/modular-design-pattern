@@ -6,6 +6,7 @@
 - Adds: moved `ModuleManager.wrangleMoudles()` method call into a new event listener using the new `pjax:scriptContentLoaded` event
 - Adds: `terser-webpack-plugin` for custom production minification
 - Adds: SASS compiling console logs to the `sass.config.js` file
+- Adds: public static `CreateModule()` method on the `ModuleManager` class allowing developers to create an instance of any module on any element upon request
 
 ### Fixes
 

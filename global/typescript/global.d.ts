@@ -19,6 +19,7 @@ declare class ModuleManager{
     public static wrangleModules:   Function;
     public static manageModules:    Function;
     public static deleteModule(uuid:string):void;
+    public static createModule(moduleId:string, el:HTMLElement):void;
 }
 
 declare const modules: { [index:string]: Function };
