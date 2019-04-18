@@ -1,6 +1,6 @@
 # 📦 The Box
 
-It's hard to think outside the box, when you don't have the box. [Start with the box](https://github.com/codewithkyle/the-box/releases).
+It's hard to think outside the box when you don't have the box. [Start with the box](https://github.com/codewithkyle/the-box/releases).
 
 ## Table of Contents
 
@@ -91,3 +91,19 @@ Globals are similar to Atomic designs [Atoms](http://atomicdesign.bradfrost.com/
 A Global is a unique style for a [Basic HTML Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element). Globals will **NEVER** apply the style to the raw HTML element.
 
 Globals are defined as a single Style file.
+
+#### Assemblies
+
+Assemblies are loosely similar to Atomic designs [Templates](http://atomicdesign.bradfrost.com/chapter-2/#templates) or [Pages](http://atomicdesign.bradfrost.com/chapter-2/#pages).
+
+An Assembly is a group of components that need to work together to perform a tasks that would be too advanced for any single component to achieve on it's own. The role of an Assembly is to manage the components that are assigned to it.
+
+An example of an Assembly could be a websites checkout page since the checkout usually has it's own unique base layout and functionality. Each step of the checkout process could be independent components that handle their own unique functionality, however, they will always report the users information back to the Assembly they're assigned to.
+
+Assemblies are defined as a combination of the following two files:
+
+1. HTML
+1. Script
+1. Style
+
+Assemblies can be composed of Globals, Objects, or Components.
