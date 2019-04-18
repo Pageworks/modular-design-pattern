@@ -7,8 +7,12 @@ It's hard to think outside the box when you don't have the box. [Start with the 
 1. [Goals](#project-goals)
 1. [License](#license)
 1. [Preface](#preface)
+1. [Terminology](#terminology)
+    - [HTML](#html)
+    - [Script](#script)
+    - [Style](#style)
+    - [Page](#page)
 1. [Specification](#specification)
-    - [Terminology](#terminology)
     - [Components](#components)
     - [Objects](#objects)
     - [Globals](#globals)
@@ -51,23 +55,34 @@ The box is published under the [MIT](https://github.com/codewithkyle/the-box/blo
 
 At a high level the box is a fairly simple framework. It attempts to codify Brad Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) by building a project architecture and development tools to support [Stephen Hay's](https://twitter.com/stephenhay) idea that we're not simply designing pages, we're designing systems of components.
 
-## Specification
-
-### Terminology
+## Terminology
 
 This specification will refer to the [Atomic design methodology](http://atomicdesign.bradfrost.com/table-of-contents/) and how it has been interpreted. Throughout the document the following terms will be referenced:
 
 - HTML
 - Script
 - Style
+- Page
+
+The goal of this specification document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine where the end result can be converted into any CMS/templating engine combination such as [Craft CMS](https://craftcms.com/) and [Twig](https://twig.symfony.com/), [Laravel](https://laravel.com/) and [Blade](https://laravel.com/docs/5.8/blade), or even a JavaScript templating engine such as [handlebars.js](https://handlebarsjs.com/).
+
+### HTML
 
 When referring to **HTML** the intention is to refer simply to the final result that will be parsed by the DOM. This document will not make assumptions about any templating engines that may or may not be used.
 
+### Script
+
 When referring to **Script** the intention is to refer to JavaScript, however, examples, documentation, and raw code will be provided/written in [TypeScript](http://www.typescriptlang.org/).
+
+### Style
 
 When referring to **Style** the intention is to refer to CSS, however, examples, documentation, and raw code will be provided/written in [SASS](https://sass-lang.com/).
 
-The goal of this specification document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine where the end result can be converted into any CMS/templating engine combination such as [Craft CMS](https://craftcms.com/) and [Twig](https://twig.symfony.com/), [Laravel](https://laravel.com/) and [Blade](https://laravel.com/docs/5.8/blade), or even a JavaScript templating engine such as [handlebars.js](https://handlebarsjs.com/).
+### Page
+
+When referring to a **Page** the intention is to refer to a general or unified DOM structure. Depending on the development environment the Page could refer to the base template that other templates extend, a specific section of the website such as an e-commerce section, or a unique section of the website such as a member dashboard. Although each section lives under one namespace the primary functionality of each section depends on the context of the section and the needs of the user when within that section.
+
+## Specification
 
 ### Components
 
@@ -138,7 +153,7 @@ The following technologies will used:
 
 ### Pjax
 
-[Pjax](https://github.com/codewithkyle/pjax) is used to prefetch pages, swap out HTML content, and dynamically importing CSS and JavaScript all under one HTTP request.
+[Pjax](https://github.com/codewithkyle/pjax) is used to prefetch pages, swap out HTML content, and dynamically importing CSS & JavaScript all under one HTTP request.
 
 ## Infrastructure
 
