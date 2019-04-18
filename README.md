@@ -8,6 +8,7 @@ It's hard to think outside the box when you don't have the box. [Start with the 
 1. [License](#license)
 1. [Preface](#preface)
 1. [Specification](#specification)
+    - [Terminology](#terminology)
     - [Components](#components)
     - [Objects](#objects)
     - [Globals](#globals)
@@ -65,7 +66,7 @@ When referring to **Style** the intention is to refer to CSS, however, examples,
 
 The goal of this specification document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine where the end result can be converted into any CMS/templating engine combination such as [Craft CMS](https://craftcms.com/) and [Twig](https://twig.symfony.com/), [Laravel](https://laravel.com/) and [Blade](https://laravel.com/docs/5.8/blade), or even a JavaScript templating engine such as [handlebars.js](https://handlebarsjs.com/).
 
-#### Components
+### Components
 
 Components are similar to Atomic designs [Organisms](http://atomicdesign.bradfrost.com/chapter-2/#organisms).
 
@@ -79,7 +80,7 @@ Components are defined as a combination of following three files:
 
 Components can be composed of Objects, Globals, other Components, or can exist as completely independent elements.
 
-#### Objects
+### Objects
 
 Objects are similar to Atomic designs [Molecules](http://atomicdesign.bradfrost.com/chapter-2/#molecules).
 
@@ -92,7 +93,7 @@ Objects are defined as a combination of the following two files:
 
 Objects can be composed of Globals, other Objects, or can exist as completely independent elements.
 
-#### Globals
+### Globals
 
 Globals are similar to Atomic designs [Atoms](http://atomicdesign.bradfrost.com/chapter-2/#atoms).
 
@@ -100,7 +101,7 @@ A Global is a unique style for a [Basic HTML Element](https://developer.mozilla.
 
 Globals are defined as a single Style file.
 
-#### Assemblies
+### Assemblies
 
 Assemblies are loosely similar to Atomic designs [Templates](http://atomicdesign.bradfrost.com/chapter-2/#templates) or [Pages](http://atomicdesign.bradfrost.com/chapter-2/#pages).
 
