@@ -13,7 +13,7 @@ It's hard to think outside the box, when you don't have the box. [Start with the
 
 ### User Focused
 
-Create a framework that handles the minor utilities needed for providing a better experience while being conscious of the projects overall data footprint.
+Create a system that handles the minor utilities needed for providing a better experience while being conscious of the projects overall data footprint.
 
 ### Unify
 
@@ -40,3 +40,33 @@ The box is published under the [MIT](https://github.com/codewithkyle/the-box/blo
 At a high level the box is a fairly simple project framework. It attempts to codify Brad Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) by building an architecture and tooling to support [Stephen Hay's](https://twitter.com/stephenhay) idea that we're not designing pages, we're designing systems of components.
 
 ## Infrastructure
+
+### Terminology
+
+This specification document will refer to the [Atomic design methodology](http://atomicdesign.bradfrost.com/table-of-contents/) and how it has been interpreted. Throughout the document the following terms will be referenced:
+- HTML
+- Script
+- Style
+
+When referring to **HTML** the intention is to refer simply to the final result that will be parsed by the DOM. This document will not make assumptions about any templating engines that may or may not be used.
+
+When referring to **Script** the intention is to refer to JavaScript. Examples, documentation, and raw code will be provided in [TypeScript](http://www.typescriptlang.org/).
+
+When referring to **Style** the intention is to refer to CSS. Examples, documentation, and raw code will be provided in [SASS](https://sass-lang.com/).
+
+The goal of this document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written with any specific templating engine. The end result will be a project architecture that can be converted into any CMS and templating engine such as [Craft CMS](https://craftcms.com/) and [Twig](https://twig.symfony.com/) or [Laravel](https://laravel.com/) and [Blade](https://laravel.com/docs/5.8/blade) or even a JavaScript templating engine such as [handlebars.js](https://handlebarsjs.com/).
+
+#### Components
+
+Components are similar to Atomic designs [Organisms](http://atomicdesign.bradfrost.com/chapter-2/#organisms) since they can be composed of other elements.
+
+A component can be a relatively complex structure ranging from a simple component, like a websites footer, all the way up to an incredibly complex component, such as a product display with advanced live filtering and sorting features.
+
+Components are defined as a combination of three files:
+1. HTML
+1. Script
+1. Style
+
+#### Objects
+
+#### Globals
