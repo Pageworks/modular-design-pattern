@@ -22,8 +22,8 @@ It's hard to think outside the box when you don't have the box. [Start with the 
     - [SASS](#sass)
     - [TypeScript](#typescript)
     - [Pjax](#pjax)
+1. [Architecture](#architecture)
 1. [Infrastructure](#infrastructure)
-1. [Implementation](#implementation)
 
 ## Project Goals
 
@@ -155,6 +155,20 @@ The following technologies will used:
 
 [Pjax](https://github.com/codewithkyle/pjax) is used to prefetch pages, swap out HTML content, and dynamically importing CSS & JavaScript all under one HTTP request.
 
-## Infrastructure
+## Architecture
 
-## Implementation
+Every [Page](#page) has an [Assembly](#assemblies). The Assembly will manage the utilities along with creation and management of any [Components](#components).
+
+A Component will manage the logic scoped to the base element of the Component. 
+
+Components **can not** communicate directly with other Components, they will only send information up the hierarchy to their assigned Assembly.
+
+The Assembly is responsible for handling cross Component communication.
+
+The Assembly will publicly store any information that is required to be used between multiple Components.
+
+Objects can exist anywhere within the Page as a visual element.
+
+Objects do **not** inherently have any functionality. They can be assigned functionality if they're apart of a Component.
+
+## Infrastructure
