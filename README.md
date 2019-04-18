@@ -17,6 +17,9 @@ It's hard to think outside the box when you don't have the box. [Start with the 
     - [Webpack](#webpack)
     - [SASS](#sass)
     - [TypeScript](#typescript)
+    - [Pjax](#pjax)
+1. [Infrastructure](#infrastructure)
+1. [Implementation](#implementation)
 
 ## Project Goals
 
@@ -127,8 +130,16 @@ The following technologies will used:
 
 ### SASS
 
-[Node SASS](https://github.com/sass/node-sass) is used as the stylesheet preprocessor to process the [SASS](https://sass-lang.com/), the CSS extension language.
+[Node SASS](https://github.com/sass/node-sass) is used as the stylesheet preprocessor to process the CSS extension language [SASS](https://sass-lang.com/).
 
 ### TypeScript
 
 [TypeScript](http://www.typescriptlang.org/) is used to transpile the TypeScript into JavaScript. TypeScript is a typed superset of JavaScript and forces developers to [declare](http://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html) the interfaces they'll be using along with [typing](https://www.typescriptlang.org/docs/handbook/basic-types.html) their variables.
+
+### Pjax
+
+[Pjax](https://github.com/codewithkyle/pjax) is used to prefetch pages, swap out HTML content, and dynamically importing CSS and JavaScript all under one HTTP request.
+
+## Infrastructure
+
+## Implementation
