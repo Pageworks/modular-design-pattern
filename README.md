@@ -53,7 +53,7 @@ The box is published under the [MIT](https://github.com/codewithkyle/the-box/blo
 
 ## Preface
 
-At a high level the box is a fairly simple framework. It attempts to codify Brad Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) by building a project architecture and development tools to support [Stephen Hay's](https://twitter.com/stephenhay) idea that we're not simply designing pages, we're designing systems of components.
+At a high level the box is a relatively simple framework. It attempts to codify Brad Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) by presenting a simple project architecture schema alongside development tools.
 
 ## Terminology
 
