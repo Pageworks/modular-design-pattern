@@ -8,6 +8,14 @@ It's hard to think outside the box when you don't have the box. [Start with the 
 1. [License](#license)
 1. [Preface](#preface)
 1. [Specification](#specification)
+    - [Components](#components)
+    - [Objects](#objects)
+    - [Globals](#globals)
+    - [Assemblies](#assemblies)
+1. [Technologies](#technologies)
+    - [Webpack](#webpack)
+    - [SASS](#sass)
+    - [TypeScript](#typescript)
 
 ## Project Goals
 
@@ -108,15 +116,18 @@ Assemblies are defined as a combination of the following two files:
 
 Assemblies can be composed of Globals, Objects, or Components.
 
-### Technology
+### Technologies
 
 The following technologies will used:
 
-**Webpack**
+#### Webpack
+
 [Webpack](https://webpack.js.org/) is used to bundle the ES Modules into individual files so that they can be lazy-loaded or dynamically imported into the global space without the need for full page reloads. Webpack will be replaced by the [dynamic import syntax](https://developers.google.com/web/updates/2017/11/dynamic-import) when it becomes available in [Edge and Firefox](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Browser_compatibility).
 
-**Node SASS**
+#### SASS
+
 [Node SASS](https://github.com/sass/node-sass) is used as the stylesheet preprocessor to process the [SASS](https://sass-lang.com/), the CSS extension language.
 
-**TypeScript**
+#### TypeScript
+
 [TypeScript](http://www.typescriptlang.org/) is used to transpile the TypeScript into JavaScript. TypeScript is a typed superset of JavaScript and forces developers to [declare](http://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html) the interfaces they'll be using along with [typing](https://www.typescriptlang.org/docs/handbook/basic-types.html) their variables.
