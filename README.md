@@ -225,6 +225,7 @@ class AssemblyClass{
 const Main = new AssemblyClass();
 Main.init();
 ```
+
 ### Base Component
 
 ```typescript
@@ -235,7 +236,6 @@ interface BaseComponent {
     public HTMLElement el;
     public String uuid;
     public AssemblyClass manager;
-    public Boolean isDebug = false;
 
     // Methods
     public Function init():void;
@@ -249,8 +249,6 @@ interface BaseComponent {
 
 `BaseComponent.manger` is the reference to the Assembly that manages the Component.
 
-`BaseComponent.isDebug` is a boolean that will be used to determine if console logs should be displayed.
-
 `BaseComponent.init()` is called after the class has been instantiated. It is used to setup event listeners or call any initial methods.
 
 `BaseComponent.destroy()` is called when the Component is about to be destroyed. It is used to remove any event listeners or call any final methods.
@@ -258,20 +256,16 @@ interface BaseComponent {
 #### Example Class
 
 ```typescript
-import { Env } from 'Env';
-
 export class BaseComponent{
 
     public el:      HTMLElement;
     public uuid:    string;
     public manager: ModuleManager;
-    public isDebug: boolean;
 
     constructor(el:HTMLElement, uuid:string, manager:ModuleManager){
         this.el         = el;
         this.uuid       = uuid;
         this.manager    = manager;
-        this.isDebug    = Env.isDebug;
 
         this.el.dataset.uuid = this.uuid;
     }
@@ -286,4 +280,45 @@ export class BaseComponent{
 
 ### Component
 
+```typescript
+interface Component extends BaseComponent {
+    constructor(el:HTMLElement, uuid:String, manager:AssemblyClass){
+        super(el, uuid, manager);
+    };
+    
+    // Variables
+    public static String COMPONENT_NAME;
+
+    // Methods
+    init():void;
+    destroy():void;
+}
+```
+
+`Component.COMPONENT_NAME` is key index value string that the Assembly will use to instantiate an new instance of the Component.
+
 #### Example Class
+
+```typescript
+import { BaseComponent } from 'BaseComponent';
+
+export class Component extends BaseComponent{
+
+    public static MODULE_NAME:string = 'Component';
+
+    constructor(el:HTMLElement, uuid:string, manager:AssemblyClass){
+        super(el, uuid, manager);
+    }
+
+    init(){
+
+    }
+
+    destroy(){
+        super.destroy(Component.MODULE_NAME);
+    }
+}
+
+// Adds module to the global Modules object
+modules[Component.MODULE_NAME] = Component;
+```
