@@ -19,27 +19,27 @@ When referring to a **Page** the intention is to refer to a general or unified D
 
 ## Schema
 
-Every [Page](#page) has an [Assembly](#assemblies). The Assembly will manage the utilities along with creation and management of any [Components](#components).
+HTTP request is sent to the server.
 
-A Component will manage the functionality scoped to the base element of the Component along with any functionality assigned to [Objects](#objects) that exist within the Component.
+The server responds with the initial Page. Every Page has an [Assembly](#assemblies) assigned to it that is instantiated via an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE).
 
-Components **can not** communicate directly with other Components, they will only send information up the hierarchy to their assigned Assembly.
+*Note: the term Page is referring to the base document structure, if a templating engine is used the term Page will be referring to the base layout template that the other templates extend.*
 
-The Assembly is responsible for handling cross Component communication.
-
-The Assembly will publicly store any information that is required to be used between multiple Components.
-
-Objects can exist anywhere within the Page as a visual element.
-
-Objects do **not** inherently have any functionality. They can be assigned functionality if they're apart of a Component.
-
-A Page will only include the [Styles](#style) and [Scripts](#script) required to run the page.
+A Page will only include the Styles and Scripts required to run the page.
 
 Each Style and Script will be packaged independently with a focus on creating small optimized file sizes.
 
+The Assembly classes will manage 3rd party packages along with creation, deletion, and management of any classes that are required by the [Components](#components) on the Page.
+
+A Component's class will manage the functionality scoped to the base element of the Component along with any functionality that the class assigns to [Objects](#objects) that exist within the Component.
+
+Components **DO NOT** communicate directly with other Components, they will only send information up the hierarchy to the Assembly.
+
+The Assembly is responsible for handling all communication between the Component classes.
+
 ## Usage
 
-The goal of this specification document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine where the end result can be converted into any CMS/templating engine combination such as [Craft CMS](https://craftcms.com/) and [Twig](https://twig.symfony.com/), [Laravel](https://laravel.com/) and [Blade](https://laravel.com/docs/5.8/blade), or even a JavaScript templating engine such as [handlebars.js](https://handlebarsjs.com/).
+The goal of this document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine. Please refer to the [Examples](#) page for detailed examples written with specific CMS and templating engine combinations.
 
 ### Globals
 
@@ -77,14 +77,14 @@ button{
 
 ### Objects
 
-Objects exists as a single or group of UI elements. Objects **DO NOT** inherently have any functionality.
+Objects exists as a single or group of UI elements. Objects **DO NOT** inherently have any functionality but can be assigned functionality by a Component. Objects can exist anywhere within the Page as a visual element.
 
-Objects are defined as a combination of the following two files:
+Objects can be composed of Globals, Objects, or can exist as completely independent elements.
+
+Objects are defined as a combination of the following files:
 
 1. HTML
 1. Style
-
-Objects can be composed of Globals, Objects, or can exist as completely independent elements.
 
 #### Example Code
 
@@ -129,21 +129,17 @@ Objects can be composed of Globals, Objects, or can exist as completely independ
 
 ### Components
 
-Components are similar to Atomic designs [Organisms](http://atomicdesign.bradfrost.com/chapter-2/#organisms).
-
 A component can be a relatively complex structure ranging from a simple component, like a websites footer, all the way up to an incredibly complex component, such as a product display with advanced live filtering and sorting features.
 
-Components are defined as a combination of following three files:
+Components can be composed of Objects, Globals, Components, or can exist as completely independent elements.
+
+Components are defined as a combination of following files:
 
 1. HTML
 1. Script
 1. Style
 
-Components can be composed of Objects, Globals, other Components, or can exist as completely independent elements.
-
 ### Assemblies
-
-Assemblies are loosely similar to Atomic designs [Templates](http://atomicdesign.bradfrost.com/chapter-2/#templates) or [Pages](http://atomicdesign.bradfrost.com/chapter-2/#pages).
 
 An Assembly is a group of components that need to work together to perform a tasks that would be too advanced for any single component to achieve on it's own. The role of an Assembly is to manage the components that are assigned to it.
 
@@ -154,8 +150,6 @@ Assemblies are defined as a combination of the following two files:
 1. HTML
 1. Script
 1. Style
-
-Assemblies can be composed of Globals, Objects, or Components.
 
 ## Infrastructure
 
