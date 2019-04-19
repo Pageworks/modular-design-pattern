@@ -24,6 +24,9 @@ It's hard to think outside the box when you don't have the box. [Start with the 
     - [Pjax](#pjax)
 1. [Architecture](#architecture)
 1. [Infrastructure](#infrastructure)
+    - [Assembly](#assembly)
+    - [Base Component](#base-component)
+    - [Component](#component)
 
 ## Project Goals
 
@@ -222,3 +225,26 @@ class AssemblyClass{
 const Main = new AssemblyClass();
 Main.init();
 ```
+### Base Component
+
+```javascript
+interface BaseComponent {
+    constructor(el, uuid, manager);
+    
+    // Variables
+    public HTMLElement el;
+    public string uuid;
+    public AssemblyClass manager;
+    public boolean isDebug = false;
+
+    // Methods
+    public Function init():void;
+    public Function destroy():void;
+}
+```
+
+#### Example Class
+
+### Component
+
+#### Example Class
