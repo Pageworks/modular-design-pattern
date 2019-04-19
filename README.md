@@ -290,8 +290,8 @@ interface Component extends BaseComponent {
     public static String COMPONENT_NAME;
 
     // Methods
-    init():void;
-    destroy():void;
+    Function init():void;
+    Function destroy():void;
 }
 ```
 
