@@ -1,4 +1,10 @@
-# 0.0.5 - 2019-04-21
+# 0.0.6 - 2019-04-19
+
+### Removes
+
+- Removes: all Craft CMS files or directories
+
+# 0.0.5 - 2019-04-18
 
 ### Adds
 

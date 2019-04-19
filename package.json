@@ -1,7 +1,7 @@
 {
     "name": "@codewithkyle/the-box",
     "description": "A generic development setup for building optimized modern websites.",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "author": "Kyle Andrews <andrewskyle28@gmail.com> (http://codewithkyle.com/)",
     "license": "MIT",
     "repository": {

@@ -1,7 +1,0 @@
-{% if craft.app.request.isAjax() %}
-    {% spaceless %}
-        {% block content %}{% endblock %}
-    {% endspaceless %}
-{% else %}
-    {% redirect siteUrl|trim('/') ~ '/404' %}
-{% endif %}
