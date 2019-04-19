@@ -234,7 +234,7 @@ interface BaseComponent {
     // Variables
     public HTMLElement el;
     public String uuid;
-    public Class manager;
+    public AssemblyClass manager;
     public Boolean isDebug = false;
 
     // Methods
@@ -243,7 +243,46 @@ interface BaseComponent {
 }
 ```
 
+`BaseComponent.el` is the top-level element that the functionality of the Component should be scoped within.
+
+`BaseComponent.uuid` is the [Universally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) that is assigned to the Component so it can be easily identified by the Assembly.
+
+`BaseComponent.manger` is the reference to the Assembly that manages the Component.
+
+`BaseComponent.isDebug` is a boolean that will be used to determine if console logs should be displayed.
+
+`BaseComponent.init()` is called after the class has been instantiated. It is used to setup event listeners or call any initial methods.
+
+`BaseComponent.destroy()` is called when the Component is about to be destroyed. It is used to remove any event listeners or call any final methods.
+
 #### Example Class
+
+```typescript
+import { Env } from 'Env';
+
+export class BaseModule{
+
+    public el:      HTMLElement;
+    public uuid:    string;
+    public manager: ModuleManager;
+    public isDebug: boolean;
+
+    constructor(el:HTMLElement, uuid:string, manager:ModuleManager){
+        this.el         = el;
+        this.uuid       = uuid;
+        this.manager    = manager;
+        this.isDebug    = Env.isDebug;
+
+        this.el.dataset.uuid = this.uuid;
+    }
+
+    public init():void{}
+
+    public destroy(MODULE_NAME:string):void{
+        this.el.removeAttribute('data-uuid');
+    }
+}
+```
 
 ### Component
 
