@@ -159,7 +159,7 @@ The following technologies will used:
 
 Every [Page](#page) has an [Assembly](#assemblies). The Assembly will manage the utilities along with creation and management of any [Components](#components).
 
-A Component will manage the functionality scoped to the base element of the Component along with any functionality assigned to Objects that exist within the Component.
+A Component will manage the functionality scoped to the base element of the Component along with any functionality assigned to [Objects](#objects) that exist within the Component.
 
 Components **can not** communicate directly with other Components, they will only send information up the hierarchy to their assigned Assembly.
 
@@ -170,5 +170,9 @@ The Assembly will publicly store any information that is required to be used bet
 Objects can exist anywhere within the Page as a visual element.
 
 Objects do **not** inherently have any functionality. They can be assigned functionality if they're apart of a Component.
+
+A Page will only include the [Styles](#style) and [Scripts](#script) required to run the page.
+
+Each Style and Script will be packaged independently with a focus on creating small optimized file sizes.
 
 ## Infrastructure
