@@ -1,9 +1,9 @@
-import { Env } from './Env';
+import { Env } from 'Env';
 import Pjax from '@codewithkyle/pjax';
 import DeviceManager from '@codewithkyle/device-manager';
-import { ModuleManager } from './ModuleManager';
+import { ModuleManager } from 'ModuleManager';
 
-class App{
+class MainApplication{
 
     private _deviceManager: any;
 
@@ -58,5 +58,5 @@ class App{
  * IIFE for launching the application
  */
 (()=>{
-    new App();
+    new MainApplication();
 })();

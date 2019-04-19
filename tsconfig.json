@@ -9,7 +9,7 @@
         "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
-        "baseUrl": "./global/typescript",
+        "baseUrl": "./utils/scripts",
         "paths": {
             "BaseModule": ["BaseModule"]
         },
