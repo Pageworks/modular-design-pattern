@@ -1,6 +1,6 @@
 # 📦 The Box
 
-It's hard to think outside the box when you don't have the box. [Start with the box](https://github.com/codewithkyle/the-box/releases).
+It's hard to think outside the box you don't have.
 
 ## Table of Contents
 
