@@ -234,7 +234,7 @@ interface BaseComponent {
     // Variables
     public HTMLElement el;
     public String uuid;
-    public AssemblyClass manager;
+    public Class manager;
     public Boolean isDebug = false;
 
     // Methods
