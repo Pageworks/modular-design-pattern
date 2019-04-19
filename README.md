@@ -182,7 +182,7 @@ Each Style and Script will be packaged independently with a focus on creating sm
 
 ### Assembly
 
-```javascript
+```typescript
 interface AssemblyClass {
     constructor();
     public Function init():void;
@@ -227,7 +227,7 @@ Main.init();
 ```
 ### Base Component
 
-```javascript
+```typescript
 interface BaseComponent {
     constructor(el, uuid, manager);
     
