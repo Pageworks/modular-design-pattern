@@ -176,3 +176,49 @@ A Page will only include the [Styles](#style) and [Scripts](#script) required to
 Each Style and Script will be packaged independently with a focus on creating small optimized file sizes.
 
 ## Infrastructure
+
+### Assembly
+
+```javascript
+interface AssemblyClass {
+    constructor();
+    public Function init():void;
+    private Function update():void;
+    private EventListener reload = update;
+}
+```
+
+`AssemblyClass.init()` is called after the class has been instantiated. It is used to instantiate any utility classes that the Assembly will need.
+
+`AssemblyClass.update()` is called when the `reload` Event Listener is triggered. It is responsible for updating, managing, or informing any of the Assemblies utility classes that a page transition occurred.
+
+`reload` is an [Event Listener](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) that fires whenever a page transition occures.
+
+#### Example Class
+
+```typescript
+import { Pjax } from '@codewithkyle/pjax';
+
+class AssemblyClass{
+    constructor(){
+        console.log('AssemblyClass has been constructed');
+    }
+
+    // Setup the reload event listener logic
+    private reload:EventListener = this.update;
+
+    private update():void{
+        // Manage logic after page transition
+    }
+
+    public init():void{
+        // Start Pjax
+        new Pjax();
+        // Listen for page transitions
+        document.addEventListener('pjax:complete', this.reload);
+    }
+}
+
+const Main = new AssemblyClass();
+Main.init();
+```

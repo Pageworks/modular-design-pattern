@@ -38,9 +38,7 @@ class MainApplication{
     /**
      * Called when Pjax fires it's custom `pjax:complete` event on the `document`.
      */
-    private handlePageLoad:EventListener = ()=>{
-        this.reinit();
-    }
+    private handlePageLoad:EventListener = this.reinit;
 
     /**
      * Called when a new page is loaded via Pjax.
