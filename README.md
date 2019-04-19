@@ -260,7 +260,7 @@ interface BaseComponent {
 ```typescript
 import { Env } from 'Env';
 
-export class BaseModule{
+export class BaseComponent{
 
     public el:      HTMLElement;
     public uuid:    string;
