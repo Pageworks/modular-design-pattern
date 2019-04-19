@@ -159,7 +159,7 @@ The following technologies will used:
 
 Every [Page](#page) has an [Assembly](#assemblies). The Assembly will manage the utilities along with creation and management of any [Components](#components).
 
-A Component will manage the logic scoped to the base element of the Component. 
+A Component will manage the functionality scoped to the base element of the Component along with any functionality assigned to Objects that exist within the Component.
 
 Components **can not** communicate directly with other Components, they will only send information up the hierarchy to their assigned Assembly.
 
