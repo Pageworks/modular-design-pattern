@@ -43,24 +43,89 @@ The goal of this specification document is to define a solid foundation for desi
 
 ### Globals
 
-Globals are similar to Atomic designs [Atoms](http://atomicdesign.bradfrost.com/chapter-2/#atoms).
-
 A Global is a unique style for a [Basic HTML Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element). Globals will **NEVER** apply the style to the raw HTML element.
 
 Globals are defined as a single Style file.
 
+#### Example Code
+
+File: `Button.scss`
+
+**Correct Usage**
+
+```scss
+.g-button{
+    border: 2px solid aqua;
+    border-radius: 2px;
+    padding: 0 16px;
+    height: 36px;
+    line-height: 36px;
+}
+```
+
+**Incorrect Usage**
+
+```scss
+button{
+    border: 2px solid aqua;
+    border-radius: 2px;
+    padding: 0 16px;
+    height: 36px;
+    line-height: 36px;
+}
+```
+
 ### Objects
 
-Objects are similar to Atomic designs [Molecules](http://atomicdesign.bradfrost.com/chapter-2/#molecules).
-
-An object is a single or group of UI elements functioning together such as a search result card on a websites search results page.
+Objects exists as a single or group of UI elements. Objects **DO NOT** inherently have any functionality.
 
 Objects are defined as a combination of the following two files:
 
 1. HTML
 1. Style
 
-Objects can be composed of Globals, other Objects, or can exist as completely independent elements.
+Objects can be composed of Globals, Objects, or can exist as completely independent elements.
+
+#### Example Code
+
+**HTML**
+
+```html
+<div class="o-card">
+    <img src="img.jpg" alt="Lorem Ipsume" />
+    <h3 class="o-card_heading">Lorem Ipsum</h3>
+    <p>Lorem ipsum dolor sit amet...</p>
+    <a href="page.html" class="g-button">Read More</a>
+</div>
+```
+
+**Style**
+
+```scss
+.o-card{
+    width: 256px;
+    height: 512px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(41,41,41,0.1);
+
+    img{
+        width: 100%;
+        height: 128px;
+        object-fit: cover;
+    }
+
+    .o-card_heading{
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    p{
+        font-size: 16px;
+        line-height: 1.618;
+    }
+}
+```
 
 ### Components
 
