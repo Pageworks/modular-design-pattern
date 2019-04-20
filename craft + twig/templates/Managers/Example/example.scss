@@ -1,0 +1,25 @@
+#example{
+    article{
+        display: block;
+        width: 100vw;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        section{
+            display: block;
+            margin-bottom: 32px;
+
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+
+            p{
+                margin-bottom: 16px;
+
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
