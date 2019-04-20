@@ -10,9 +10,9 @@ At a high level the box is a relatively simple framework. It attempts to codify 
     - [Globals](#globals)
     - [Objects](#objects)
     - [Components](#components)
-    - [Assemblies](#assemblies)
+    - [Managers](#managers)
 1. [Interfaces](#interfaces)
-    - [Assembly](#assembly)
+    - [Manager](#manager)
     - [Base Component](#base-component)
     - [Component](#component)
 1. [License](#license)
@@ -25,7 +25,7 @@ When referring to a **Page** the intention is to refer to a document structure. 
 
 HTTP request is sent to the server.
 
-The server responds with the initial Page. Every Page has an [Assembly](#assemblies) assigned to it that is instantiated via an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE).
+The server responds with the initial Page. Every Page has a Manager assigned to it that is instantiated via an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE).
 
 *Note: the term Page is referring to the base document structure, if a templating engine is used the term Page will be referring to the base layout template that the other templates extend.*
 
@@ -33,13 +33,13 @@ A Page will only include the Styles and Scripts required to run the page.
 
 Each Style and Script will be packaged independently with a focus on creating small optimized file sizes.
 
-The Assembly classes will manage 3rd party packages along with creation, deletion, and management of any classes that are required by the [Components](#components) on the Page.
+The Manager classes will manage 3rd party packages along with creation, deletion, and management of any classes that are required by the Components on the Page.
 
-A Component's class will manage the functionality scoped to the base element of the Component along with any functionality that the class assigns to [Objects](#objects) that exist within the Component.
+A Component's class will manage the functionality scoped to the base element of the Component along with any functionality that the class assigns to Objects that exist within the Component.
 
-Components **DO NOT** communicate directly with other Components, they will only send information up the hierarchy to the Assembly.
+Components **DO NOT** communicate directly with other Components, they will only send information up the hierarchy to the Manager.
 
-The Assembly is responsible for handling all communication between the Component classes.
+The Manager is responsible for handling all communication between the Component classes.
 
 # Usage
 
@@ -186,7 +186,7 @@ export class DemoComponent extends BaseComponent {
     
     public static String COMPONENT_NAME = "DemoComponent";
     
-    constructor(el:HTMLElement, uuid:String, manager:AssemblyClass){
+    constructor(el:HTMLElement, uuid:String, manager:ManagerClass){
         super(el, uuid, manager);
     };
 
@@ -214,13 +214,13 @@ export class DemoComponent extends BaseComponent {
 modules[DemoComponent.MODULE_NAME] = DemoComponent;
 ```
 
-## Assemblies
+## Managers
 
-An Assembly is a group of components that need to work together to perform a tasks that would be too advanced for any single component to achieve on it's own. The role of an Assembly is to manage the components that are assigned to it.
+A Manager is a group of components that need to work together to perform a tasks that would be too advanced for any single component to achieve on it's own. The role of a Manager is to manage the components that are assigned to it.
 
-An example of an Assembly could be a websites checkout page since the checkout usually has it's own unique base layout and functionality. Each step of the checkout process could be independent components that handle their own unique functionality, however, they will always report the users information back to the Assembly they're assigned to.
+An example of a Manager could be a websites checkout page since the checkout usually has it's own unique base layout and functionality. Each step of the checkout process could be independent components that handle their own unique functionality, however, they will always report the users information back to the Manager they're assigned to.
 
-Assemblies are defined as a combination of the following two files:
+Managers are defined as a combination of the following two files:
 
 1. HTML
 1. Script
@@ -228,10 +228,10 @@ Assemblies are defined as a combination of the following two files:
 
 # Interfaces
 
-## Assembly
+## Manager
 
 ```typescript
-interface AssemblyClass {
+interface ManagerClass {
     constructor();
     public Function init():void;
     private Function update():void;
@@ -239,9 +239,9 @@ interface AssemblyClass {
 }
 ```
 
-`AssemblyClass.init()` is called after the class has been instantiated. It is used to instantiate any utility classes that the Assembly will need.
+`ManagerClass.init()` is called after the class has been instantiated. It is used to instantiate any utility classes that the Manager will need.
 
-`AssemblyClass.update()` is called when the `reload` Event Listener is triggered. It is responsible for updating, managing, or informing any of the Assemblies utility classes that a page transition occurred.
+`ManagerClass.update()` is called when the `reload` Event Listener is triggered. It is responsible for updating, managing, or informing any of the Managers utility classes that a page transition occurred.
 
 `reload` is an [Event Listener](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) that fires whenever a page transition occures.
 
@@ -254,7 +254,7 @@ interface BaseComponent {
     // Variables
     public HTMLElement el;
     public String uuid;
-    public AssemblyClass manager;
+    public ManagerClass manager;
 
     // Methods
     public Function init():void;
@@ -264,9 +264,9 @@ interface BaseComponent {
 
 `BaseComponent.el` is the top-level element that the functionality of the Component should be scoped within.
 
-`BaseComponent.uuid` is the [Universally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) that is assigned to the Component so it can be easily identified by the Assembly.
+`BaseComponent.uuid` is the [Universally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier) that is assigned to the Component so it can be easily identified by the Manager.
 
-`BaseComponent.manger` is the reference to the Assembly that manages the Component.
+`BaseComponent.manger` is the reference to the Manager that manages the Component.
 
 `BaseComponent.init()` is called after the class has been instantiated. It is used to setup event listeners or call any initial methods.
 
@@ -276,7 +276,7 @@ interface BaseComponent {
 
 ```typescript
 interface Component extends BaseComponent {
-    constructor(el:HTMLElement, uuid:String, manager:AssemblyClass){
+    constructor(el:HTMLElement, uuid:String, manager:ManagerClass){
         super(el, uuid, manager);
     };
     
@@ -289,7 +289,7 @@ interface Component extends BaseComponent {
 }
 ```
 
-`Component.COMPONENT_NAME` is key index value string that the Assembly will use to instantiate an new instance of the Component.
+`Component.COMPONENT_NAME` is key index value string that the Manager will use to instantiate an new instance of the Component.
 
 # License
 
