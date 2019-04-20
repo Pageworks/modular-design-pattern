@@ -16,7 +16,7 @@ At a high level the box is a relatively simple framework. It attempts to codify 
 
 # Terminology
 
-When referring to a **Page** the intention is to refer to a general or unified DOM structure. Depending on the development environment the Page could refer to the base template that other templates extend, a specific section of the website such as an e-commerce section, or a unique section of the website such as a member dashboard. Although each section lives under one namespace the primary functionality of each section depends on the context of the section and the needs of the user when within that section.
+When referring to a **Page** the intention is to refer to a document structure. Depending on the development environment the Page could refer to the base template that other templates extend.
 
 # Schema
 
