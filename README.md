@@ -12,6 +12,9 @@ At a high level the box is a relatively simple framework. It attempts to codify 
     - [Components](#components)
     - [Assemblies](#assemblies)
 1. [Interfaces](#interfaces)
+    - [Assembly](#assembly)
+    - [Base Component](#base-component)
+    - [Component](#component)
 1. [License](#license)
 
 # Terminology
