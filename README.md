@@ -1,6 +1,6 @@
 # 📦 The Box
 
-At a high level the box is a simple project architecture. It attempts to codify Brad Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). The goal of this document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine. Please refer to the [Examples](#) page for detailed examples written with specific CMS and templating engine combinations.
+At a high level the box is a simple project architecture. It attempts to codify Brad Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). The goal of this document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine. Please refer to the [Examples](./examples.md) page for detailed examples written with specific CMS and templating engine combinations.
 
 # Table of Contents
 
