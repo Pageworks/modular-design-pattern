@@ -253,6 +253,11 @@ class Manager{
         ModuleManager.manageModules();
     }
 }
+
+// IIFE used to start the Manager class
+(()=>{
+    new Manager();
+})();
 ```
 
 # Interfaces
