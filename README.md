@@ -2,7 +2,7 @@
 
 At a high level the box is a relatively simple framework. It attempts to codify Brad Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) by presenting a simple project architecture schema alongside development tools.
 
-## Table of Contents
+# Table of Contents
 
 1. [Terminology](#terminology)
 1. [Schema](#schema)
@@ -14,11 +14,11 @@ At a high level the box is a relatively simple framework. It attempts to codify 
 1. [Interfaces](#interfaces)
 1. [License](#license)
 
-## Terminology
+# Terminology
 
 When referring to a **Page** the intention is to refer to a general or unified DOM structure. Depending on the development environment the Page could refer to the base template that other templates extend, a specific section of the website such as an e-commerce section, or a unique section of the website such as a member dashboard. Although each section lives under one namespace the primary functionality of each section depends on the context of the section and the needs of the user when within that section.
 
-## Schema
+# Schema
 
 HTTP request is sent to the server.
 
@@ -38,17 +38,17 @@ Components **DO NOT** communicate directly with other Components, they will only
 
 The Assembly is responsible for handling all communication between the Component classes.
 
-## Usage
+# Usage
 
 The goal of this document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine. Please refer to the [Examples](#) page for detailed examples written with specific CMS and templating engine combinations.
 
-### Globals
+## Globals
 
 A Global is a unique style for a [Basic HTML Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element). Globals will **NEVER** apply the style to the raw HTML element.
 
 Globals are defined as a single Style file.
 
-#### Example Code
+### Example Code
 
 File: `Button.scss`
 
@@ -80,7 +80,7 @@ button{
 }
 ```
 
-### Objects
+## Objects
 
 Objects can exists anywhere within the page as visual elements. Objects **DO NOT** inherently have any functionality but can be assigned functionality by a Component.
 
@@ -91,7 +91,7 @@ Objects are defined as a combination of the following files:
 1. HTML
 1. Style
 
-#### Example Code
+### Example Code
 
 **HTML**
 
@@ -132,7 +132,7 @@ Objects are defined as a combination of the following files:
 }
 ```
 
-### Components
+## Components
 
 A component is similar to an Object except that is has a it's own uniquely defined piece of functionality.
 
@@ -144,7 +144,7 @@ Components are defined as a combination of following files:
 1. Script
 1. Style
 
-#### Example Code
+### Example Code
 
 **HTML**
 
@@ -211,7 +211,7 @@ export class DemoComponent extends BaseComponent {
 modules[DemoComponent.MODULE_NAME] = DemoComponent;
 ```
 
-### Assemblies
+## Assemblies
 
 An Assembly is a group of components that need to work together to perform a tasks that would be too advanced for any single component to achieve on it's own. The role of an Assembly is to manage the components that are assigned to it.
 
@@ -223,9 +223,9 @@ Assemblies are defined as a combination of the following two files:
 1. Script
 1. Style
 
-## Interfaces
+# Interfaces
 
-### Assembly
+## Assembly
 
 ```typescript
 interface AssemblyClass {
@@ -242,7 +242,7 @@ interface AssemblyClass {
 
 `reload` is an [Event Listener](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) that fires whenever a page transition occures.
 
-### Base Component
+## Base Component
 
 ```typescript
 interface BaseComponent {
@@ -269,7 +269,7 @@ interface BaseComponent {
 
 `BaseComponent.destroy()` is called when the Component is about to be destroyed. It is used to remove any event listeners or call any final methods.
 
-### Component
+## Component
 
 ```typescript
 interface Component extends BaseComponent {
@@ -288,6 +288,6 @@ interface Component extends BaseComponent {
 
 `Component.COMPONENT_NAME` is key index value string that the Assembly will use to instantiate an new instance of the Component.
 
-## License
+# License
 
 The box is published under the [MIT](https://github.com/codewithkyle/the-box/blob/master/LICENSE) license.
