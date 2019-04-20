@@ -1,6 +1,6 @@
 # 📦 The Box
 
-At a high level the box is a relatively simple framework. It attempts to codify Brad Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) by presenting a simple project architecture schema alongside development tools.
+At a high level the box is a simple project architecture. It attempts to codify Brad Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). The goal of this document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine. Please refer to the [Examples](#) page for detailed examples written with specific CMS and templating engine combinations.
 
 # Table of Contents
 
@@ -19,35 +19,27 @@ At a high level the box is a relatively simple framework. It attempts to codify 
 
 # Terminology
 
-When referring to a **Page** the intention is to refer to a document structure. Depending on the development environment the Page could refer to the base template that other templates extend.
+When referring to a **Page** the intention is to refer to a document structure. If a templating engine is used the term Page would refer to the base template that other templates extend.
 
 # Schema
 
 HTTP request is sent to the server.
 
-The server responds with the initial Page. Every Page has a Manager assigned to it that is instantiated via an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE).
+The server responds with the initial Page. Every Page has a Manager that is instantiated via an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). The Page will only include the Styles and Scripts required to run the page.
 
-*Note: the term Page is referring to the base document structure, if a templating engine is used the term Page will be referring to the base layout template that the other templates extend.*
-
-A Page will only include the Styles and Scripts required to run the page.
-
-Each Style and Script will be packaged independently with a focus on creating small optimized file sizes.
+Styles and Scripts are be packaged independently with a focus on creating small optimized file sizes.
 
 The Manager classes will manage 3rd party packages along with creation, deletion, and management of any classes that are required by the Components on the Page.
 
-A Component's class will manage the functionality scoped to the base element of the Component along with any functionality that the class assigns to Objects that exist within the Component.
+A Component's class will manage the functionality scoped to the root node of the Component along with any functionality that the class assigns to Objects and Globals that exist within the Component.
 
-Components **DO NOT** communicate directly with other Components, they will only send information up the hierarchy to the Manager.
-
-The Manager is responsible for handling all communication between the Component classes.
+Components **DO NOT** communicate directly with other Components, they will only send information up the hierarchy to the Manager. The Manager is responsible for handling all communication between the Component classes.
 
 # Usage
 
-The goal of this document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine. Please refer to the [Examples](#) page for detailed examples written with specific CMS and templating engine combinations.
-
 ## Globals
 
-A Global is a unique style for a [Basic HTML Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element). Globals will **NEVER** apply the style to the raw HTML element.
+A Global is a unique style for a [Basic HTML Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element). Globals will **NEVER** apply the style to the raw HTML element and they **DO NOT** inherently have any functionality but can be assigned functionality by a Component.
 
 Globals are defined as a single Style file.
 
@@ -137,7 +129,7 @@ Objects are defined as a combination of the following files:
 
 ## Components
 
-A component is similar to an Object except that is has a it's own uniquely defined piece of functionality.
+A Component is similar to an Object except that is has a uniquely defined piece of functionality.
 
 Components can be composed of Objects and Globals.
 
@@ -209,22 +201,59 @@ export class DemoComponent extends BaseComponent {
         super.destroy(DemoComponent.MODULE_NAME);
     }
 }
-
-// Adds module to the global Modules object
-modules[DemoComponent.MODULE_NAME] = DemoComponent;
 ```
 
 ## Managers
 
-A Manager is a group of components that need to work together to perform a tasks that would be too advanced for any single component to achieve on it's own. The role of a Manager is to manage the components that are assigned to it.
+A Manager is a group of Components that need to work together to perform a tasks that would be too advanced for any single Component to achieve on it's own. The role of a Manager is to manage the Components that are assigned to it along with any additional 3rd party packages.
 
-An example of a Manager could be a websites checkout page since the checkout usually has it's own unique base layout and functionality. Each step of the checkout process could be independent components that handle their own unique functionality, however, they will always report the users information back to the Manager they're assigned to.
-
-Managers are defined as a combination of the following two files:
+Managers are defined as a combination of the following files:
 
 1. HTML
 1. Script
 1. Style
+
+### Example Code
+
+**Script**
+
+```typescript
+import { ModuleManager } from 'ModuleManager';
+import { Pjax } from '@codewithkyle/pjax';
+
+class Manager{
+    constructor(){
+        console.log('The Manager has started their shift');
+        this.init();
+    }
+
+    /**
+     * Called when Pjax fires it's custom `pjax:complete` event on the `document`.
+     */
+    private handlePageLoad:EventListener = ()=>{
+        this.reinit();
+    }
+
+    private init():void{
+        // Start Pjax
+        new Pjax({ debug: true });
+
+        // Start the Module Manager
+        new ModuleManager();
+
+        // Listen for a successful page transition event
+        document.addEventListener('pjax:complete', this.handlePageLoad);
+    }
+
+    /**
+     * Called when a new page is loaded via Pjax.
+     * Any classes/packages that need to manage their DOM hooks should be told to reinit.
+     */
+    public reinit():void{
+        ModuleManager.manageModules();
+    }
+}
+```
 
 # Interfaces
 
