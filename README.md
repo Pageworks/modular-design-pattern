@@ -11,6 +11,7 @@ At a high level the box is a relatively simple framework. It attempts to codify 
     - [Objects](#objects)
     - [Components](#components)
     - [Assemblies](#assemblies)
+1. [Interfaces](#interfaces)
 1. [License](#license)
 
 ## Terminology
@@ -60,6 +61,10 @@ File: `Button.scss`
     padding: 0 16px;
     height: 36px;
     line-height: 36px;
+
+    &.-solid{
+        background-color: aqua;
+    }
 }
 ```
 
@@ -77,9 +82,9 @@ button{
 
 ### Objects
 
-Objects exists as a single or group of UI elements. Objects **DO NOT** inherently have any functionality but can be assigned functionality by a Component. Objects can exist anywhere within the Page as a visual element.
+Objects can exists anywhere within the page as visual elements. Objects **DO NOT** inherently have any functionality but can be assigned functionality by a Component.
 
-Objects can be composed of Globals, Objects, or can exist as completely independent elements.
+Objects can be composed of Globals and other Objects.
 
 Objects are defined as a combination of the following files:
 
@@ -129,15 +134,82 @@ Objects are defined as a combination of the following files:
 
 ### Components
 
-A component can be a relatively complex structure ranging from a simple component, like a websites footer, all the way up to an incredibly complex component, such as a product display with advanced live filtering and sorting features.
+A component is similar to an Object except that is has a it's own uniquely defined piece of functionality.
 
-Components can be composed of Objects, Globals, Components, or can exist as completely independent elements.
+Components can be composed of Objects and Globals.
 
 Components are defined as a combination of following files:
 
 1. HTML
 1. Script
 1. Style
+
+#### Example Code
+
+**HTML**
+
+```html
+<div class="c-DemoComponent" data-component="DemoComponent">
+    <div class="c-DemoComponent_card"></div>
+    <div class="c-DemoComponent_card"></div>
+    <div class="c-DemoComponent_card"></div>
+    <div class="c-DemoComponent_card"></div>
+    <div class="c-DemoComponent_card"></div>
+    <div class="c-DemoComponent_card"></div>
+</div>
+```
+
+**Style**
+
+```scss
+.c-DemoComponent{
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .c-DemoComponent_card{
+        border-radius: 4px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(41,41,41,0.1);
+        min-height: 256px;
+    }
+}
+```
+
+**Script**
+
+```typescript
+export class DemoComponent extends BaseComponent {
+    
+    public static String COMPONENT_NAME = "DemoComponent";
+    
+    constructor(el:HTMLElement, uuid:String, manager:AssemblyClass){
+        super(el, uuid, manager);
+    };
+
+    private changeColor:EventListener = ()=>{
+        console.log(`Creating a new ${ DemoComponent.MODULE_NAME } module`);
+        this.el.style.backgroundColor = 'rgb(66, 134, 244)';
+    }
+
+    /**
+     * Called when the module is created.
+     */
+    init():void{
+        this.el.addEventListener('click', this.changeColor);
+    }
+
+    /**
+     * Called when the module is being removed.
+     */
+    destroy():void{
+        super.destroy(DemoComponent.MODULE_NAME);
+    }
+}
+
+// Adds module to the global Modules object
+modules[DemoComponent.MODULE_NAME] = DemoComponent;
+```
 
 ### Assemblies
 
@@ -151,7 +223,7 @@ Assemblies are defined as a combination of the following two files:
 1. Script
 1. Style
 
-## Infrastructure
+## Interfaces
 
 ### Assembly
 
