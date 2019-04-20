@@ -18,6 +18,7 @@
 
         {# Stylesheets #}
         <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/example.css">
+        {% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/Button.css') %}
 
         <script>
             modules = {};

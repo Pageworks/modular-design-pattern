@@ -64,7 +64,7 @@ class Manager{
      */
     private initModules():void{
         // Get all elements with a `data-module` attribute
-        const moduleEls:Array<HTMLElement> = Array.from(document.body.querySelectorAll('[data-module]'));
+        const moduleEls:Array<HTMLElement> = Array.from(document.body.querySelectorAll('[data-component]'));
 
         // Do nothing if no modules are required
         if(!moduleEls.length){
@@ -125,7 +125,7 @@ class Manager{
         }
 
         // Get all elements with a `data-module` attribute
-        const moduleEls:Array<HTMLElement> = Array.from(document.body.querySelectorAll('[data-module]'));
+        const moduleEls:Array<HTMLElement> = Array.from(document.body.querySelectorAll('[data-component]'));
         const deadModules:Array<IModule> = [];
 
         // Loop through all of the modules that have been created

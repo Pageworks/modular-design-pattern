@@ -1,0 +1,8 @@
+{% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/DemoObject.css') %}
+
+<div class="o-DemoObject">
+    <img src="{{ siteUrl|trim('/') }}/assets/img.jpg" alt="{{ card.title }}" />
+    <h3 class="o-DemoObject_heading">{{ card.title }}</h3>
+    <p>{{ card.body }}</p>
+    <a href="{{ siteUrl|trim('/') }}/page" class="g-button">Read More</a>
+</div>

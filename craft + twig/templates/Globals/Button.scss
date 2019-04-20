@@ -1,0 +1,11 @@
+.g-button{
+    border: 2px solid aqua;
+    border-radius: 2px;
+    padding: 0 16px;
+    height: 36px;
+    line-height: 36px;
+
+    &.-solid{
+        background-color: aqua;
+    }
+}
