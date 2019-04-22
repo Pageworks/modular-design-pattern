@@ -5,7 +5,7 @@ At a high level the box is a simple project architecture. It attempts to codify 
 # Table of Contents
 
 1. [Terminology](#terminology)
-1. [Schema](#schema)
+1. [Overview](#overview)
 1. [Usage](#usage)
     - [Globals](#globals)
     - [Objects](#objects)
@@ -21,7 +21,7 @@ At a high level the box is a simple project architecture. It attempts to codify 
 
 When referring to a **Page** the intention is to refer to a document structure. If a templating engine is used the term Page would refer to the base template that other templates extend.
 
-# Schema
+# Overview
 
 HTTP request is sent to the server.
 
