@@ -43,8 +43,6 @@ A Global is a unique style for a [Basic HTML Element](https://developer.mozilla.
 
 Globals are defined as a single Style file.
 
-### Example Code
-
 File: `Button.scss`
 
 **Correct Usage**
@@ -83,12 +81,7 @@ Objects can be composed of Globals and other Objects.
 
 Objects are defined as a combination of the following files:
 
-1. HTML
-1. Style
-
-### Example Code
-
-**HTML**
+### HTML
 
 ```html
 <div class="o-card">
@@ -99,7 +92,7 @@ Objects are defined as a combination of the following files:
 </div>
 ```
 
-**Style**
+### Style
 
 ```scss
 .o-card{
@@ -135,13 +128,7 @@ Components can be composed of Objects and Globals.
 
 Components are defined as a combination of following files:
 
-1. HTML
-1. Script
-1. Style
-
-### Example Code
-
-**HTML**
+### HTML
 
 ```html
 <div class="c-DemoComponent" data-component="DemoComponent">
@@ -154,7 +141,7 @@ Components are defined as a combination of following files:
 </div>
 ```
 
-**Style**
+### Style
 
 ```scss
 .c-DemoComponent{
@@ -171,7 +158,7 @@ Components are defined as a combination of following files:
 }
 ```
 
-**Script**
+### Script
 
 ```typescript
 export class DemoComponent extends BaseComponent {
@@ -209,13 +196,41 @@ A Manager is a group of Components that need to work together to perform a tasks
 
 Managers are defined as a combination of the following files:
 
-1. HTML
-1. Script
-1. Style
+### HTML
 
-### Example Code
+```html
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Manager Demo Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <main id="Manager">
 
-**Script**
+    ...snip...
+
+    </main>
+    <script src="Manager.js"></script>
+</body>
+</html>
+```
+
+### Style
+
+```scss
+#Manager{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 100vw;
+    max-width: 1200px;
+}
+```
+
+### Script
 
 ```typescript
 import { ModuleManager } from 'ModuleManager';
