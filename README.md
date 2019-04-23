@@ -35,7 +35,7 @@ A Component's class will manage the functionality scoped to the root node of the
 
 Components **DO NOT** communicate directly with other Components, they will only send information up the hierarchy to the Manager. The Manager is responsible for handling all communication between the Component classes.
 
-[Architectural Pattern](https://github.com/codewithkyle/the-box/blob/master/_assets/architectural-pattern.png)
+![Architectural Pattern](https://github.com/codewithkyle/the-box/blob/master/_assets/architectural-pattern.png)
 
 # Usage
 
