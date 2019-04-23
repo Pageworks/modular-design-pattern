@@ -1,4 +1,8 @@
+{# Register CSS for the object #}
 {% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/DemoObject.css') %}
+
+{# Register any dependencies #}
+{% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/Button.css') %}
 
 <div class="js-card o-DemoObject">
     <img src="{{ siteUrl|trim('/') }}/assets/img.jpg" alt="{{ card.title }}" />

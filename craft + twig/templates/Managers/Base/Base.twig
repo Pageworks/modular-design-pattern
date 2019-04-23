@@ -17,8 +17,7 @@
         <meta name="msapplication-square310x310logo" content="{{ siteUrl|trim('/') }}/assets/images/icon-310.png">
 
         {# Stylesheets #}
-        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/example.css">
-        {% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/Button.css') %}
+        <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/Base.css">
 
         <script>
             modules = {};
@@ -26,10 +25,10 @@
     </head>
     <body>
         {% spaceless %}
-            <article id="example" role="main" class="js-pjax">
+            <article id="Base" role="main" class="js-pjax">
                 {% block content %}{% endblock %}
             </article>
-            {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/Manager.js', {"async":"async"}) %}
+            {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/Base.js', {"async":"async"}) %}
         {% endspaceless %}
     </body>
 </html>
