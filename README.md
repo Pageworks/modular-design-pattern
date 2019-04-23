@@ -33,9 +33,11 @@ The Manager classes will manage 3rd party packages along with creation, deletion
 
 A Component's class will manage the functionality scoped to the root node of the Component along with any functionality that the class assigns to Objects and Globals that exist within the Component.
 
-Components **DO NOT** communicate directly with other Components, they will only send information up the hierarchy to the Manager. The Manager is responsible for handling all communication between the Component classes.
+Components **DO NOT** communicate directly with other Components, they will only send information up the hierarchy.
 
 ![Architectural Pattern](https://github.com/codewithkyle/the-box/blob/master/_assets/architectural-pattern.png)
+
+Note: This architectural pattern is a slight variation of the [Model–view–viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) and [Hierarchical model–view–controller](https://en.wikipedia.org/wiki/Hierarchical_model–view–controller) software architectural patterns. The major difference being that a Components controller can not directly communicate with another controller, they can only communicate with their Model or the Model that is specified as their upstream within the hierarchy.
 
 # Usage
 
