@@ -1,10 +1,15 @@
 import { Pjax } from '@codewithkyle/pjax';
 import { ModuleManager } from '@codewithkyle/ModuleManager';
+import { Env } from 'Env';
 
 class Base{
 
     constructor(){
-        console.log('The Manager has started their shift');
+        
+        if(Env.isDebug){
+            console.log('The Manager has started their shift');
+        }
+
         this.init();
     }
 

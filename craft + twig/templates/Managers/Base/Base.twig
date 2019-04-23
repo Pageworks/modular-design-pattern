@@ -19,6 +19,9 @@
         {# Stylesheets #}
         <link rel="stylesheet" href="{{ siteUrl|trim('/') }}/assets/styles/Base.css">
 
+        {# Scripts #}
+        {% do view.registerJsFile( siteUrl|trim('/') ~ '/assets/scripts/Env.js', {"async":"async"}) %}
+
         <script>
             modules = {};
         </script>
