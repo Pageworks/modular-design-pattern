@@ -34,17 +34,15 @@ When referring to a **Page** the intention is to refer to a document structure. 
 
 # Overview
 
-HTTP request is sent to the server.
-
-The server responds with the initial Page.
-
-Modules are instantiated. 
-
-Styles and Scripts are be packaged individually. The Page will only include the Styles and Scripts required to run the page.
+The application runtime begins.
 
 The runtime application will manage 3rd party packages along with creation, deletion, and management of any modules that are required.
 
-A modules class will manage the functionality scoped to the root node along with any functionality that the class assigns to nodes that exist within the root.
+Modules are instantiated. 
+
+The modules class will manage the functionality scoped to the modules view.
+
+Submodules are instantiated.
 
 Submodules **DO NOT** cross-communicate other submodules, they will only communicate with the module that instantiated them.
 
