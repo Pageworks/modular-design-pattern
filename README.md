@@ -38,7 +38,7 @@ The runtime application will instantiate the initial modules and any submodules 
 
 ```
 interface Application {
-    public static Modules interface;
+    public static Modules;
     public static Modules array;
 
     public static createModule(View, UUID, parent = null) returns Module;
@@ -48,7 +48,7 @@ interface Application {
 
 ```
 interface Modules {
-    string : Module interface
+    string : Module
 }
 ```
 
