@@ -1,8 +1,0 @@
-{% do view.registerJsFile(siteUrl|trim('/') ~ '/assets/scripts/DemoComponent.js', { "async":"async" }) %}
-{% do view.registerCssFile(siteUrl|trim('/') ~ '/assets/styles/DemoComponent.css') %}
-
-<div class="c-DemoComponent" data-component="DemoComponent">
-    {% for card in 1..6 %}
-        {% include 'Objects/DemoObject/DemoObject.twig' %}
-    {% endfor %}
-</div>
