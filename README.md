@@ -57,8 +57,8 @@ interface Application {
 ```
 
 ```
-interface Modules {
-    string : Module
+interface Modules = {
+    [key as string] : Module
 }
 ```
 
@@ -85,4 +85,4 @@ interface Module {
 
 # License
 
-The box is published under the [MIT](https://github.com/Pageworks/modular-design-pattern/blob/master/LICENSE) license.
+The Modular Design Pattern is published under the [MIT](https://github.com/Pageworks/modular-design-pattern/blob/master/LICENSE) license.
