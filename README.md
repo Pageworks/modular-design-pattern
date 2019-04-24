@@ -36,11 +36,11 @@ The Modular Design Pattern uses a variation of the [model–view–controller](h
 
 ![Applicaiton Structure](https://github.com/Pageworks/modular-design-pattern/blob/master/_assets/application-structure.png)
 
-## Module Instantiation
-
-![Instantiation Structure](https://github.com/Pageworks/modular-design-pattern/blob/master/_assets/instantiation-structure.png)
+### Module Instantiation
 
 The runtime application will instantiate the initial modules. Any submodules that are required will be instantiated.
+
+![Instantiation Structure](https://github.com/Pageworks/modular-design-pattern/blob/master/_assets/instantiation-structure.png)
 
 # Usage
 
