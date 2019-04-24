@@ -38,8 +38,7 @@ The runtime application will instantiate the initial modules and any submodules 
 
 ```
 interface Application {
-    public static Modules;
-    public static Array<Module> = currentModules;
+    public static Array<Module>;
 
     public static createModule(View, UUID, parent = null) returns Module;
     public static deleteModule(UUID) returns void;
@@ -48,17 +47,11 @@ interface Application {
         requestedModules = getRequestedModules();
         foreach module in requestedModules {
             UUID = getUniversallyUniqueIdentifier();
-            moduleInstance = Application.createModule(module.View, UUID);
+            moduleInstance = Application.createModule(View, UUID);
             modulesInstance.init();
-            push moduleInstance into Application.currentModules;
+            push moduleInstance into Array<Module>;
         }
     }
-}
-```
-
-```
-interface Modules = {
-    [key as string] : Module
 }
 ```
 
@@ -67,7 +60,7 @@ interface Module {
     private View;
     private string UUID;
     private Module parent;
-    public Array<Module> = submodules;
+    private Array<Module>;
 
     constructor(View, UUID, parent = null);
 
@@ -75,9 +68,9 @@ interface Module {
         requiredModules = getRequestedModules();
         foreach submodule in requiredModules {
             UUID = getUniversallyUniqueIdentifier();
-            submoduleInstance = Application.createModule(submodule.View, UUID, Module);
+            submoduleInstance = Application.createModule(View, UUID, Module);
             submoduleInstance.init();
-            push moduleInstance into submodules;
+            push moduleInstance into Array<Module>;
         }
     }
 }
