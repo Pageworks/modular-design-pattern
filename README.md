@@ -1,6 +1,17 @@
-# 📦 The Box
+# Modular Design Pattern
 
-At a high level the box is a simple project architecture. It attempts to codify Brad Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). The goal of this document is to define a solid foundation for design systems and pattern libraries to be build upon. This document will refrain from presenting examples written in any specific templating engine. Please refer to the [Examples](./examples.md) page for detailed examples written with specific CMS and templating engine combinations.
+The Modular Design Pattern attempts to codify Brad Frost's [Atomic Design methodology](http://bradfrost.com/blog/post/atomic-web-design/) using a variation of the [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) architectural pattern. The Modular Design Pattern solves problems like:
+
+- How to work with [modular programming](https://en.wikipedia.org/wiki/Modular_programming)
+- How modules can instantiate other submodules
+
+The Modular Design Pattern describes how to solves such as:
+
+- Define an operation for creating modules
+- Define an operation for destroying modules
+- Define communication between modules and submodules
+
+This document will refrain from presenting examples written in any specific templating engine. Please refer to the [Examples](./examples.md) page for detailed examples written with specific CMS and templating engine combinations.
 
 # Table of Contents
 
@@ -25,19 +36,21 @@ When referring to a **Page** the intention is to refer to a document structure. 
 
 HTTP request is sent to the server.
 
-The server responds with the initial Page. Every Page has a Manager that is instantiated via an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). The Page will only include the Styles and Scripts required to run the page.
+The server responds with the initial Page.
 
-Styles and Scripts are be packaged independently with a focus on creating small optimized file sizes.
+Modules are instantiated. 
 
-The Manager classes will manage 3rd party packages along with creation, deletion, and management of any classes that are required by the Components on the Page.
+Styles and Scripts are be packaged individually. The Page will only include the Styles and Scripts required to run the page.
 
-A Component's class will manage the functionality scoped to the root node of the Component along with any functionality that the class assigns to Objects and Globals that exist within the Component.
+The runtime application will manage 3rd party packages along with creation, deletion, and management of any modules that are required.
 
-Components **DO NOT** communicate directly with other Components, they will only send information up the hierarchy.
+A modules class will manage the functionality scoped to the root node along with any functionality that the class assigns to nodes that exist within the root.
 
-![Architectural Pattern](https://github.com/codewithkyle/the-box/blob/master/_assets/architectural-pattern-v2.png)
+Submodules **DO NOT** cross-communicate other submodules, they will only communicate with the module that instantiated them.
 
-Note: This architectural pattern is a slight variation of the [Model–view–viewmodel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) and [Hierarchical model–view–controller](https://en.wikipedia.org/wiki/Hierarchical_model–view–controller) software architectural patterns. The major difference being that a Components controller can not directly communicate with another controller, they can only communicate with their Model or the Model that is specified as their upstream within the hierarchy.
+![Applicaiton Structure](https://github.com/Pageworks/modular-design-pattern/blob/master/_assets/application-structure.png)
+
+Note: This structure is a slight variation of the [model–view–controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) and [Hierarchical model–view–controller](https://en.wikipedia.org/wiki/Hierarchical_model–view–controller) software architectural patterns. The major difference being that controllers can directly communicate with other controllers or the server without having to send request up the hierarchy to the top-level controller.
 
 # Usage
 
@@ -346,4 +359,4 @@ interface Component extends BaseComponent {
 
 # License
 
-The box is published under the [MIT](https://github.com/codewithkyle/the-box/blob/master/LICENSE) license.
+The box is published under the [MIT](https://github.com/Pageworks/modular-design-pattern/blob/master/LICENSE) license.
