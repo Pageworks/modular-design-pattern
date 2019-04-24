@@ -1,3 +1,0 @@
-# Examples
-
-- [JavaScript](./examples/javascript)
