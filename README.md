@@ -76,7 +76,7 @@ interface Module
         requiredModules = getRequestedModules();
         foreach submodule in requiredModules {
             UUID = getUniversallyUniqueIdentifier();
-            submoduleInstance = Application.createModule(view, uuid, this);
+            submoduleInstance = Application.createModule(view, uuid, Module);
             submoduleInstance.mounted();
             push moduleInstance into children;
         }
@@ -143,9 +143,9 @@ interface ChildModule extends Module
 
     mounted()
     {
-        if(this.parent)
+        if(parent)
         {
-            this.parent.setValue(key, value);
+            parent.setValue(key, value);
         }
     }
 }
