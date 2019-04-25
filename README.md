@@ -36,7 +36,7 @@ The runtime application will instantiate the initial modules and any submodules 
 
 ### Pseudocode
 
-```
+```javascript
 interface Application
 {
     public static modules;
@@ -58,7 +58,7 @@ interface Application
 }
 ```
 
-```
+```javascript
 interface Module
 {
     public view;
@@ -93,7 +93,7 @@ interface Module
 
 Client side controllers are allowed limited communication between one another. All controllers can directly communication with Static Module controllers or server side controllers.
 
-```
+```javascript
 interface StaticModule
 {
 
@@ -103,7 +103,7 @@ interface StaticModule
 }
 ```
 
-```
+```javascript
 interface StandardModule extends Module
 {
     
@@ -118,7 +118,7 @@ interface StandardModule extends Module
 
 All other Module controllers are restricted to direct communication between the Modules parent or its children.
 
-```
+```javascript
 interface StandardModule extends Module
 {
     
@@ -133,7 +133,7 @@ interface StandardModule extends Module
 }
 ```
 
-```
+```javascript
 interface ChildModule extends Module
 {
     
