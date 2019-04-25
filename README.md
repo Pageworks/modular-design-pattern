@@ -38,18 +38,18 @@ The runtime application will instantiate the initial modules and any submodules 
 
 ```
 interface Application {
-    public static Array<Module>;
+    public static modules;
 
-    public static createModule(View, UUID, parent = null) returns Module;
-    public static deleteModule(UUID) returns void;
+    public static createModule(view, uuid, parent = null) returns Module;
+    public static deleteModule(uuid) returns void;
 
-    private initModules() {
+    private mountModules() {
         requestedModules = getRequestedModules();
         foreach module in requestedModules {
-            UUID = getUniversallyUniqueIdentifier();
-            moduleInstance = Application.createModule(View, UUID);
-            modulesInstance.init();
-            push moduleInstance into Array<Module>;
+            uuid = getUniversallyUniqueIdentifier();
+            moduleInstance = Application.createModule(view, uuid);
+            modulesInstance.mounted();
+            push moduleInstance into modules;
         }
     }
 }
@@ -57,24 +57,32 @@ interface Application {
 
 ```
 interface Module {
-    private View;
-    private string UUID;
-    private Module parent;
-    private Array<Module>;
+    public view;
+    public uuid;
+    public parent;
+    public children;
 
-    constructor(View, UUID, parent = null);
+    constructor(view, uuid, parent = null);
 
     public init() {
         requiredModules = getRequestedModules();
         foreach submodule in requiredModules {
             UUID = getUniversallyUniqueIdentifier();
-            submoduleInstance = Application.createModule(View, UUID, Module);
-            submoduleInstance.init();
-            push moduleInstance into Array<Module>;
+            submoduleInstance = Application.createModule(view, uuid, this);
+            submoduleInstance.mounted();
+            push moduleInstance into children;
         }
     }
+
+    public mounted(){ }
+    public beforeDestroy(){ }
+    public destroy(){ }
 }
 ```
+
+### Module Lifecycle
+
+![Module Lifecycle](https://github.com/Pageworks/modular-design-pattern/blob/master/_assets/base-module-lifecycle.png)
 
 # License
 
