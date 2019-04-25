@@ -7,6 +7,9 @@ The Modular Design Pattern attempts to codify Brad Frost's [Atomic Design method
 1. [Overview](#overview)
 1. [Structure](#structure)
 1. [Usage](#usage)
+    1. [Pseudocode](#pseudocode)
+    1. [Module Lifecycle](#module-lifecycle)
+    1. [Communication](#communication)
 1. [License](#license)
 
 # Overview
