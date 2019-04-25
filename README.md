@@ -68,7 +68,7 @@ interface Module
 
     constructor(view, uuid, parent = null);
 
-    public init()
+    public mounted()
     {
         requiredModules = getRequestedModules();
         foreach submodule in requiredModules {
@@ -79,7 +79,6 @@ interface Module
         }
     }
 
-    public mounted(){ }
     public beforeDestroy(){ }
     public destroy(){ }
 }
